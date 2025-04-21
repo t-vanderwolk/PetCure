@@ -2,3 +2,20 @@
 @tailwind components;
 @tailwind utilities;
 
+/* index.css */
+/* html,
+
+#root {
+  height: 100%;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+} */
+
+/* .hero_banner {
+  height: 100%;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  overflow:auto
+} */

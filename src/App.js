@@ -1,8 +1,9 @@
 
 import './index.css';
-
+import HeroSection from './components/HeroSection';
 import React from "react";
 import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
+
 
 
 function Navbar() {
@@ -11,7 +12,7 @@ function Navbar() {
       <div className="max-w-6xl mx-auto flex flex-wrap items-center justify-between">
 
         <Link to="/" className="text-pink-600 text-xl font-bold">PetCure
-        <img className="bg-pink-200 w-32 h-32 rounded-full mx-auto mb-4 flex items-center justify-center text-pink-600 font-bold" src="/images/petcure-logo.png" alt='logo' />
+        {/* <img className="bg-pink-200 w-32 h-32 rounded-full mx-auto mb-4 flex items-center justify-center text-pink-600 font-bold" src="/images/petcure-logo.png" alt='logo' /> */}
 
         </Link>
         <div className="flex space-x-4">
@@ -34,16 +35,20 @@ function Navbar() {
 
 function Home() {
   return (
-    <div className="text-center p-10">
-      {/* <div className="bg-pink-200 w-32 h-32 rounded-full mx-auto mb-4 flex items-center justify-center text-pink-600 font-bold">
-        <img className="bg-pink-200 w-32 h-32 rounded-full mx-auto mb-4 flex items-center justify-center text-pink-600 font-bold" src="/images/petcure-logo.png" alt='logo' />
-      </div> */}
-      {/* <h1 className="text-4xl font-bold text-pink-600 mb-2">Perfect. Polished. Paws.</h1>
-      <p className="text-lg mb-4">Natural nail care solutions for your pet, one step at a time.</p> */}
-      <img src="/images/hero-banner.jpeg" alt="Hero" width='100%' />
-    </div>
+     <HeroSection />
   );
 }
+//     // className="text-center p-10">
+    
+//       {/* <div className="bg-pink-200 w-32 h-32 rounded-full mx-auto mb-4 flex items-center justify-center text-pink-600 font-bold">
+//         <img className="bg-pink-200 w-32 h-32 rounded-full mx-auto mb-4 flex items-center justify-center text-pink-600 font-bold" src="/images/petcure-logo.png" alt='logo' />
+//       </div> */}
+//       {/* <h1 className="text-4xl font-bold text-pink-600 mb-2">Perfect. Polished. Paws.</h1>
+//       <p className="text-lg mb-4">Natural nail care solutions for your pet, one step at a time.</p> */}
+//       {/* <img src="/images/hero-banner.jpeg" alt="Hero" width='100%' /> */}
+   
+//   );
+// }
 
 function About() {
   return (
@@ -100,8 +105,10 @@ function PediWalk() {
 
 function App() {
   return (
-    <Router>
+   <div>
+   <Router>
       <Navbar />
+      {/* <HeroSection /> */}
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/about" element={<About />} />
@@ -111,6 +118,8 @@ function App() {
         <Route path="/pediwalk" element={<PediWalk />} />
       </Routes>
     </Router>
+    </div>
+   
   );
 }
 
