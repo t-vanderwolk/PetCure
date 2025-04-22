@@ -4,40 +4,53 @@ import HeroSection from './components/HeroSection';
 import React from "react";
 import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
 
+// function Navbar() {
+//   return (
+//     <nav className="flex justify-between items-center px-6 py-4 bg-white shadow-md fixed top-0 left-0 right-0 z-50">
+//       <Link to="/" className="text-pink-600 text-2xl font-bold">PetCure</Link>
+//       <div className="flex gap-6">
+//         <Link to="/" className="text-pink-500 hover:underline">Home</Link>
+//         <Link to="/about" className="text-pink-500 hover:underline">About</Link>
+//       </div>
+//     </nav>
+//   );
+// }
+
+// function Navbar() {
+//   return (
+//     <nav class="relative inline-block text-left">
+  
 
 
-function Navbar() {
-  return (
-    <nav className="bg-pink-100 p-4 shadow">
-      <div className="max-w-6xl mx-auto flex flex-wrap items-center justify-between">
 
-        <Link to="/" className="text-pink-600 text-xl font-bold">PetCure
-        {/* <img className="bg-pink-200 w-32 h-32 rounded-full mx-auto mb-4 flex items-center justify-center text-pink-600 font-bold" src="/images/petcure-logo.png" alt='logo' /> */}
+//     <div class="py-1" role="none">
 
-        </Link>
-        <div className="flex space-x-4">
-          <Link to="/" className="text-pink-500 hover:underline">Home</Link>
-          <Link to="/about" className="text-pink-500 hover:underline">About Us</Link>
-          <Link to="/contact" className="text-pink-500 hover:underline">Contact</Link>
-          <Link to="/coming-soon" className="text-pink-500 hover:underline">Coming Soon</Link>
-          <div className="relative group">
-            <button className="text-pink-500 hover:underline">Products ▾</button>
-            <div className="absolute hidden group-hover:block bg-white shadow rounded mt-1">
-              <Link to="/pedisteps" className="block px-4 py-2 text-pink-500 hover:bg-pink-50">PediSteps</Link>
-              <Link to="/pediwalk" className="block px-4 py-2 text-pink-500 hover:bg-pink-50">PediWalk</Link>
-            </div>
-          </div>
-        </div>
-      </div>
-    </nav>
-  );
-}
+//      </div> 
+  
 
-function Home() {
-  return (
-     <HeroSection />
-  );
-}
+//         <Link to="/" className="text-pink-600 text-xl font-bold">PetCure
+//         {/* <img className="bg-pink-200 w-32 h-32 rounded-full mx-auto mb-4 flex items-center justify-center text-pink-600 font-bold" src="/images/petcure-logo.png" alt='logo' /> */}
+
+//         </Link>
+//         <div className="flex space-x-4">
+//           <Link to="/" className="text-pink-500 hover:underline">Home</Link>
+//           <Link to="/about" className="text-pink-500 hover:underline">About Us</Link>
+//           <Link to="/contact" className="text-pink-500 hover:underline">Contact</Link>
+//           <Link to="/coming-soon" className="text-pink-500 hover:underline">Coming Soon</Link>
+//           <div className="relative group">
+//             <button className="text-pink-500 hover:underline">Products ▾</button>
+//             <div className="absolute hidden group-hover:block bg-white shadow rounded mt-1">
+//               <Link to="/pedisteps" className="block px-4 py-2 text-pink-500 hover:bg-pink-50">PediSteps</Link>
+//               <Link to="/pediwalk" className="block px-4 py-2 text-pink-500 hover:bg-pink-50">PediWalk</Link>
+//             </div>
+//           </div>
+//         </div>
+      
+//     </nav>
+//   );
+// }
+
+
 //     // className="text-center p-10">
     
 //       {/* <div className="bg-pink-200 w-32 h-32 rounded-full mx-auto mb-4 flex items-center justify-center text-pink-600 font-bold">
@@ -107,10 +120,10 @@ function App() {
   return (
    <div>
    <Router>
-      <Navbar />
-      {/* <HeroSection /> */}
+      {/* <Navbar /> */}
+      <HeroSection />
       <Routes>
-        <Route path="/" element={<Home />} />
+        {/* <Route path="/" element={<Home />} /> */}
         <Route path="/about" element={<About />} />
         <Route path="/contact" element={<Contact />} />
         <Route path="/coming-soon" element={<ComingSoon />} />
