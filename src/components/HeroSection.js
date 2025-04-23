@@ -43,7 +43,7 @@ function HeroSection() {
   };
 
   return (
-    <div className="fixed w-full h-screen pt-16 overflow-hidden">
+    <div className="bg-origin-border md:bg-origin-padding">
       {/* Carousel Images */}
       <AnimatePresence>
         <motion.img
@@ -55,7 +55,7 @@ function HeroSection() {
           animate={{ opacity: 1 }}
           exit={{ opacity: 0 }}
           transition={{ duration: 1, ease: "easeInOut" }}
-          className="top-0 left-0 w-full h-full object-cover"
+          className="relative top-0 left-0 w-full h-full object-cover"
         />
       </AnimatePresence>
 

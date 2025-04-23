@@ -7,7 +7,9 @@ import HeroSection from './components/HeroSection';
 
 function Navbar() {
   return (
-<nav className="fixed top-0 left-0 right-0 z-50 h-16 px-6 flex items-center justify-between bg-white/30 backdrop-blur-md text-pink-500">      <div className="flex gap-6 text-lg">
+    <nav className="fixed top-0 left-0 right-0 z-50 h-16 px-6 flex items-center justify-between bg-white/30 backdrop-blur-md text-pink-500">
+      <Link to="/" className="text-2xl font-bold hover:text-pink-600 transition">PetCure</Link>
+      <div className="flex gap-6 text-lg">
         <Link to="/" className="hover:underline">Home</Link>
         <Link to="/about" className="hover:underline">About</Link>
         <Link to="/contact" className="hover:underline">Contact</Link>
@@ -26,8 +28,11 @@ function Navbar() {
 
 function Home() {
   
-  return <HeroSection />;
- 
+  return (
+  <div className='absolute top-0 left-0 w-full h-full object-cover'>
+   <HeroSection />;
+ </div>
+  )
 }
 
 function About() {
