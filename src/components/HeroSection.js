@@ -43,7 +43,7 @@ function HeroSection() {
   };
 
   return (
-    <div className="bg-origin-border md:bg-origin-padding">
+    <div className="relative shadow-lg h-screen">
       {/* Carousel Images */}
       <AnimatePresence>
         <motion.img
@@ -55,8 +55,7 @@ function HeroSection() {
           animate={{ opacity: 1 }}
           exit={{ opacity: 0 }}
           transition={{ duration: 1, ease: "easeInOut" }}
-          className="relative top-0 left-0 w-full h-full object-cover"
-        />
+          className="w-full h-full"        />
       </AnimatePresence>
 
       {/* Door Animation */}
@@ -79,29 +78,31 @@ function HeroSection() {
 
       {/* Tagline and Button */}
       <motion.div
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ delay: 2, duration: 1 }}
-        className="absolute z-30 top-[60%] left-1/2 -translate-x-1/2 text-center flex flex-col items-center space-y-4"
-      >
-        <div className="px-6 py-4 rounded-xl bg-white/30 backdrop-blur-md">
-          <div className="flex gap-2 justify-center text-3xl md:text-5xl font-bold text-pink-500 drop-shadow-lg">
-            <motion.span initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 2.2, duration: 0.6 }}>Perfect.</motion.span>
-            <motion.span initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 2.8, duration: 0.6 }}>Polished.</motion.span>
-            <motion.span initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 3.4, duration: 0.6 }}>Paws.</motion.span>
-          </div>
-        </div>
+  initial={{ opacity: 0 }}
+  animate={{ opacity: 1 }}
+  transition={{ delay: 2, duration: 1 }}
+  className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 z-30 text-center flex flex-col items-center space-y-4"
+>
+  {/* Translucent background box for tagline */}
+  <div className="px-6 py-4 rounded-xl bg-white/30 backdrop-blur-md">
+    <div className="flex gap-2 justify-center text-3xl md:text-5xl font-bold text-pink-500 drop-shadow-lg">
+      <motion.span initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 2.2, duration: 0.6 }}>Perfect.</motion.span>
+      <motion.span initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 2.8, duration: 0.6 }}>Polished.</motion.span>
+      <motion.span initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 3.4, duration: 0.6 }}>Paws.</motion.span>
+    </div>
+  </div>
 
-        <motion.button
-          initial={{ opacity: 0, y: 10 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 4.2, duration: 0.6 }}
-          onClick={() => navigate('/about')}
-          className="px-6 py-2 bg-pink-500 text-white rounded-full shadow-md hover:bg-pink-600 transition"
-        >
-          Enter Now
-        </motion.button>
-      </motion.div>
+  {/* Enter Now button */}
+  <motion.button
+    initial={{ opacity: 0, y: 10 }}
+    animate={{ opacity: 1, y: 0 }}
+    transition={{ delay: 4.2, duration: 0.6 }}
+    onClick={() => navigate('/about')}
+    className="px-6 py-2 bg-pink-500 text-white rounded-full shadow-md hover:bg-pink-600 transition"
+  >
+    Enter Now
+  </motion.button>
+</motion.div>
 
       {/* Carousel Toggle Buttons */}
       <div className="absolute z-40 top-1/2 left-2 transform -translate-y-1/2">

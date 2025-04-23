@@ -1,58 +1,43 @@
 import './index.css';
 import React from 'react';
-import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom';
+import { BrowserRouter as Router, Routes, Route, Link,  useLocation  } from 'react-router-dom';
 import HeroSection from './components/HeroSection';
-
+import About from './pages/About';
+import Navbar from './components/Navbar';
 // ✅ Fixed: class -> className in JSX
 
-function Navbar() {
+
+function AppContent() {
+  const location = useLocation();
+
+  // Only show Navbar if not on home page
+  const showNavbar = location.pathname !== '/';
+
   return (
-    <nav className="fixed top-0 left-0 right-0 z-50 h-16 px-6 flex items-center justify-between bg-white/30 backdrop-blur-md text-pink-500">
-      <Link to="/" className="text-2xl font-bold hover:text-pink-600 transition">PetCure</Link>
-      <div className="flex gap-6 text-lg">
-        <Link to="/" className="hover:underline">Home</Link>
-        <Link to="/about" className="hover:underline">About</Link>
-        <Link to="/contact" className="hover:underline">Contact</Link>
-        <Link to="/coming-soon" className="hover:underline">Coming Soon</Link>
-        <div className="relative group">
-          <button className="hover:underline">Products ▾</button>
-          <div className="absolute hidden group-hover:block bg-white/70 backdrop-blur-md text-pink-500 rounded shadow mt-1">
-            <Link to="/pedisteps" className="block px-4 py-2 hover:bg-pink-100">PediSteps</Link>
-            <Link to="/pediwalk" className="block px-4 py-2 hover:bg-pink-100">PediWalk</Link>
-          </div>
-        </div>
-      </div>
-    </nav>
+    <>
+      {showNavbar && <Navbar />}
+      <Routes>
+        <Route path="/" element={<HeroSection />} />
+        <Route path="/about" element={<About />} />
+        <Route path="/contact" element={<Contact />} />
+        <Route path="/coming-soon" element={<ComingSoon />} />
+        <Route path="/pedisteps" element={<PediSteps />} />
+        <Route path="/pediwalk" element={<PediWalk />} />
+      </Routes>
+    </>
   );
 }
 
 function Home() {
   
   return (
-  <div className='absolute top-0 left-0 w-full h-full object-cover'>
+  <div className='top-0 left-0 w-full h-full object-contain'>
    <HeroSection />;
  </div>
   )
 }
 
-function About() {
-  return (
-    <div className="p-10 max-w-4xl mx-auto pt-24">
-      <h2 className="text-3xl font-bold text-pink-600 mb-4">About Us</h2>
-      <p>
-        Hi, I’m Taylor — the creator of PetCure and a loving dog mom to two very different (but equally spoiled) pups: Karma, my sweet and spunky 5-year-old Pomsky, and Beatrix (or “Bea” for short), my loyal 4-year-old American Akita. They’ve been my inspiration, my motivation, and—let’s be honest—my product testers and live-in models from day one.
-        <br /><br />
-        The idea for PetCure was born out of a real problem I faced as a pet parent: the stress, struggle, and expense of regular nail trims. Karma and Bea couldn’t be more different in size, personality, or lifestyle needs, which made it nearly impossible to find one grooming solution that worked for both of them. That’s what pushed me to create something truly different—a natural, passive nail care system that works for all pets, in any type of home.
-        <br /><br />
-        Our flagship product, PediSteps, are textured stair pads that file your pet’s nails as they walk—no clippers, no groomer visits, no stress. And for homes without stairs, we’re excited to soon launch PediWalk, a hallway version of the same paw-friendly innovation.
-        <br /><br />
-        At PetCure, our mission is simple: to make pet grooming safer, easier, and more comfortable for pets and their humans. Whether you live in a two-story house or a studio apartment, have a 100-pound Akita or a 10-pound tabby, PetCure is designed to fit seamlessly into your routine—and your home.
-        <br /><br />
-        Because grooming should feel like care, not a chore. Because every pet deserves a Perfect. Polished. Paw.
-      </p>
-    </div>
-  );
-}
+
 
 function Contact() {
   return (
@@ -103,16 +88,9 @@ function PediWalk() {
 
 function App() {
   return (
+  
     <Router>
-      <Navbar />
-      <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/about" element={<About />} />
-        <Route path="/contact" element={<Contact />} />
-        <Route path="/coming-soon" element={<ComingSoon />} />
-        <Route path="/pedisteps" element={<PediSteps />} />
-        <Route path="/pediwalk" element={<PediWalk />} />
-      </Routes>
+<AppContent />
     </Router>
   );
 }
