@@ -16,40 +16,45 @@ import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
 //   );
 // }
 
-// function Navbar() {
-//   return (
-//     <nav class="relative inline-block text-left">
+function Navbar() {
+  return (
+    <nav class="bg-pink-500 text-white relative flex text-left">
   
 
 
 
-//     <div class="py-1" role="none">
+    <div class="py-1" role="none">
 
-//      </div> 
+     </div> 
   
 
-//         <Link to="/" className="text-pink-600 text-xl font-bold">PetCure
-//         {/* <img className="bg-pink-200 w-32 h-32 rounded-full mx-auto mb-4 flex items-center justify-center text-pink-600 font-bold" src="/images/petcure-logo.png" alt='logo' /> */}
+        <Link to="/" className="bg-pink-500 text-white text-xl font-bold px-3 py-1">PetCure
+        {/* <img className="bg-pink-200 w-32 h-32 rounded-full mx-auto mb-4 flex items-center justify-center text-pink-600 font-bold" src="/images/petcure-logo.png" alt='logo' /> */}
 
-//         </Link>
-//         <div className="flex space-x-4">
-//           <Link to="/" className="text-pink-500 hover:underline">Home</Link>
-//           <Link to="/about" className="text-pink-500 hover:underline">About Us</Link>
-//           <Link to="/contact" className="text-pink-500 hover:underline">Contact</Link>
-//           <Link to="/coming-soon" className="text-pink-500 hover:underline">Coming Soon</Link>
-//           <div className="relative group">
-//             <button className="text-pink-500 hover:underline">Products ▾</button>
-//             <div className="absolute hidden group-hover:block bg-white shadow rounded mt-1">
-//               <Link to="/pedisteps" className="block px-4 py-2 text-pink-500 hover:bg-pink-50">PediSteps</Link>
-//               <Link to="/pediwalk" className="block px-4 py-2 text-pink-500 hover:bg-pink-50">PediWalk</Link>
-//             </div>
-//           </div>
-//         </div>
+        </Link>
+        <div className="flex space-x-4">
+          <Link to="/home" className="bg-pink-500 text-white hover:underline">Home</Link>
+          <Link to="/about" className="bg-pink-500 text-white hover:underline">About Us</Link>
+          <Link to="/contact" className="bg-pink-500 text-white hover:underline">Contact</Link>
+          <Link to="/coming-soon" className="bg-pink-500 text-white hover:underline">Coming Soon</Link>
+          <div className="relative group">
+            <button className="bg-pink-500 txt-white hover:underline">Products ▾</button>
+            <div className="absolute hidden group-hover:block bg-white rounded mt-1">
+              <Link to="/pedisteps" className="block px-4 py-2 bg-pink-500 text-white hover:bg-pink-50">PediSteps</Link>
+              <Link to="/pediwalk" className="block px-4 py-2 bg-pink-500 txt-white hover:bg-pink-50">PediWalk</Link>
+            </div>
+          </div>
+        </div>
       
-//     </nav>
-//   );
-// }
+    </nav>
+  );
+}
 
+function Home () {
+  return (
+  <HeroSection />
+  )
+}
 
 //     // className="text-center p-10">
     
@@ -68,7 +73,19 @@ function About() {
     <div className="p-10 max-w-4xl mx-auto">
       <h2 className="text-3xl font-bold text-pink-600 mb-4">About Us</h2>
       <p>
-        PetCure is committed to revolutionizing pet nail care with gentle, passive filing solutions. Inspired by real pet parent challenges, we’ve created elegant products that fit into everyday routines — no stress, no clippers.
+
+About Us
+
+Hi, I’m Taylor — the creator of PetCure and a loving dog mom to two very different (but equally spoiled) pups: Karma, my sweet and spunky 5-year-old Pomsky, and Beatrix (or “Bea” for short), my loyal 4-year-old American Akita. They’ve been my inspiration, my motivation, and—let’s be honest—my product testers and live-in models from day one.
+
+The idea for PetCure was born out of a real problem I faced as a pet parent: the stress, struggle, and expense of regular nail trims. Karma and Bea couldn’t be more different in size, personality, or lifestyle needs, which made it nearly impossible to find one grooming solution that worked for both of them. That’s what pushed me to create something truly different—a natural, passive nail care system that works for all pets, in any type of home.
+
+Our flagship product, PediSteps, are textured stair pads that file your pet’s nails as they walk—no clippers, no groomer visits, no stress. And for homes without stairs, we’re excited to soon launch PediWalk, a hallway version of the same paw-friendly innovation.
+
+At PetCure, our mission is simple: to make pet grooming safer, easier, and more comfortable for pets and their humans. Whether you live in a two-story house or a studio apartment, have a 100-pound Akita or a 10-pound tabby, PetCure is designed to fit seamlessly into your routine—and your home.
+
+Because grooming should feel like care, not a chore.
+Because every pet deserves a Perfect. Polished. Paw.
       </p>
     </div>
   );
@@ -118,12 +135,12 @@ function PediWalk() {
 
 function App() {
   return (
-   <div>
+
+      <>
    <Router>
-      {/* <Navbar /> */}
-      <HeroSection />
+      <Navbar />
       <Routes>
-        {/* <Route path="/" element={<Home />} /> */}
+        <Route path="/" element={<Home />} /> 
         <Route path="/about" element={<About />} />
         <Route path="/contact" element={<Contact />} />
         <Route path="/coming-soon" element={<ComingSoon />} />
@@ -131,8 +148,8 @@ function App() {
         <Route path="/pediwalk" element={<PediWalk />} />
       </Routes>
     </Router>
-    </div>
-   
+    <Home />
+   /</>
   );
 }
 
