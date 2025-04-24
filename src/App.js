@@ -1,6 +1,6 @@
 import './index.css';
 import React from 'react';
-import { BrowserRouter as Router, Routes, Route, Link,  useLocation  } from 'react-router-dom';
+import { BrowserRouter as Router, Routes, Route, useLocation  } from 'react-router-dom';
 // import HeroSection from './components/HeroSection';
 import Navbar from './components/Navbar';
 import About from './pages/About';
