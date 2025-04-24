@@ -15,6 +15,7 @@ const images = [
   '/images/hero-banner10.jpeg',
   '/images/hero-banner11.jpeg',
   '/images/hero-banner12.jpeg',
+  '/images/hero-banner13.jpeg'
 ];
 
 function HeroSection() {
