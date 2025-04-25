@@ -26,7 +26,7 @@ function About() {
           Each PediStep and PediWalk features a carefully engineered dual-layer design—combining a textured emery surface with a studded, non-slip vinyl base. This ensures both function and comfort while blending seamlessly into your home.
         </p>
         <img
-          src="/images/closeup.jpeg" // Replace with your actual close-up image
+          src="/images/closeup.jpeg" // Replace with your actual close-up product image
           alt="Close-up view showing the textured layers of PediSteps and PediWalk"
           className="w-full max-w-2xl rounded-lg border border-pink-200 shadow-md"
         />
@@ -44,6 +44,23 @@ function About() {
           className="w-full rounded-lg border border-pink-200 shadow-sm"
         />
       </div>
+
+      {/* Lifestyle Image of Karma and Bea */}
+
+<div className="my-10 flex flex-col items-center bg-pink-50/60 backdrop-blur-md p-6 rounded-lg shadow-md">
+  <h3 className="text-2xl font-bold text-pink-500 mb-4">Real Life Inspiration</h3>
+  <p className="text-lg text-gray-700 text-center mb-4 max-w-2xl">
+    Meet the heart behind PetCure—my pups, Karma and Bea. This lifestyle photo captures a quiet moment at home, where it all began. From testing prototypes to giving tail wags of approval, these two have been part of every step in the journey.
+  </p>
+  <div className="w-full max-w-3xl relative rounded-xl overflow-hidden">
+    <div className="absolute inset-0 bg-white/40 backdrop-blur-sm z-10 rounded-xl" />
+    <img
+      src="/images/karma-bea2.jpeg"
+      alt="Taylor with Karma and Bea at home"
+      className="relative z-20 w-full rounded-xl border border-pink-200 shadow-md object-cover"
+    />
+  </div>
+</div>
 
       <p className="text-lg leading-relaxed mb-6">
         At PetCure, our mission is simple: to make pet grooming safer, easier, and more comfortable for pets and their humans. Whether you live in a two-story house or a studio apartment, have a 100-pound Akita or a 10-pound tabby, PetCure is designed to fit seamlessly into your routine—and your home.
