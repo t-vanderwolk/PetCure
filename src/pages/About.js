@@ -19,6 +19,32 @@ function About() {
         </p>
       </div>
 
+      {/* Product Architecture Visual */}
+      <div className="my-8 flex flex-col items-center bg-pink-50/60 backdrop-blur-md p-6 rounded-lg shadow-md">
+        <h3 className="text-xl font-bold text-pink-500 mb-2">Product Architecture</h3>
+        <p className="text-base text-gray-700 mb-4 text-center max-w-2xl">
+          Each PediStep and PediWalk features a carefully engineered dual-layer design—combining a textured emery surface with a studded, non-slip vinyl base. This ensures both function and comfort while blending seamlessly into your home.
+        </p>
+        <img
+          src="/images/closeup.jpeg" // Replace with your actual close-up image
+          alt="Close-up view showing the textured layers of PediSteps and PediWalk"
+          className="w-full max-w-2xl rounded-lg border border-pink-200 shadow-md"
+        />
+      </div>
+
+      {/* Nail Health Infographic */}
+      <div className="my-10 p-6 bg-pink-50/60 backdrop-blur-md rounded-lg shadow-md">
+        <h3 className="text-2xl font-bold text-pink-500 mb-4">Why Nail Health Matters</h3>
+        <p className="text-lg text-gray-700 mb-4">
+          Overgrown nails can cause your pet’s toes to splay unnaturally, leading to poor paw posture, joint strain, and long-term orthopedic issues. Keeping nails properly filed supports better weight distribution, natural gait, and overall joint health.
+        </p>
+        <img
+          src="/images/nail-posture-infographic.jpeg"
+          alt="Infographic showing how dog nail length affects posture"
+          className="w-full rounded-lg border border-pink-200 shadow-sm"
+        />
+      </div>
+
       <p className="text-lg leading-relaxed mb-6">
         At PetCure, our mission is simple: to make pet grooming safer, easier, and more comfortable for pets and their humans. Whether you live in a two-story house or a studio apartment, have a 100-pound Akita or a 10-pound tabby, PetCure is designed to fit seamlessly into your routine—and your home.
       </p>
