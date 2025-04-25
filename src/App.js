@@ -11,6 +11,7 @@ import PediSteps from './pages/PediSteps';
 import PediWalk from './pages/PediWalk';
 import Products from './pages/Products';
 import Facts from './pages/Facts';
+import Compare from './pages/Compare';
 
 function AppContent() {
   const location = useLocation();
@@ -25,6 +26,7 @@ function AppContent() {
         <Route path="/" element={<Home />} />
         <Route path="/about" element={<About />} />
         <Route path="/products" element={<Products />} />
+        <Route path="/compare" element={<Compare />} />
         <Route path="/contact" element={<Contact />} />
         <Route path="/coming-soon" element={<ComingSoon />} />
         <Route path="/pedisteps" element={<PediSteps />} />

@@ -33,6 +33,7 @@ function Navbar() {
             </Link>
           </div>
         </div>
+        <Link to="/compare" className="hover:text-pink-600 transition">Compare</Link>
 
         <Link to="/coming-soon" className="hover:text-pink-600 transition">Coming Soon</Link>
         <Link to="/facts" className="hover:text-pink-600 transition">FAQ</Link>
