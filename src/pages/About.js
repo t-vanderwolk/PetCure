@@ -4,139 +4,138 @@ import { motion } from 'framer-motion';
 function About() {
   return (
     <section className="bg-pink-50 pt-24 pb-20 min-h-screen">
-      <div className="max-w-5xl mx-auto px-6">
-        {/* Heading */}
+      <div className="max-w-6xl mx-auto px-6">
+        {/* Hero Section */}
         <motion.div
           initial={{ opacity: 0, y: 60 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.3, duration: 1 }}
-          className="text-center mb-16"
+          transition={{ delay: 0.2, duration: 1 }}
+          className="text-center mb-20"
         >
-          <h1 className="text-4xl font-bold text-pink-600 mb-4">About the Creator</h1>
-          <p className="text-gray-600 max-w-2xl mx-auto">
-            Meet the founder of PetCure and the two pawsitively perfect pups who inspired it all.
+          <h1 className="text-5xl font-bold text-pink-600 mb-6">Welcome to PetCure</h1>
+          <p className="text-gray-600 max-w-2xl mx-auto text-lg">
+            Transforming pet grooming from a stressful chore into a seamless, stress-free experience.
           </p>
         </motion.div>
 
-        {/* Origin Story */}
+        {/* Problem/Solution */}
         <motion.div
           initial={{ opacity: 0, y: 40 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.5, duration: 1 }}
-          className="bg-white rounded-2xl shadow-md border border-pink-200 p-6 mb-10"
+          transition={{ delay: 0.4, duration: 1 }}
+          className="bg-white rounded-2xl shadow-md border border-pink-200 p-8 mb-16 text-center"
         >
-          <p className="text-lg text-gray-800 mb-4">
-            Hi, I’m <span className="font-bold text-pink-500">Taylor</span> — the creator of PetCure and a loving dog mom to two very different (but equally spoiled) pups: Karma, my sweet and spunky 5-year-old Pomsky, and Beatrix (or “Bea” for short), my loyal 4-year-old American Akita.
-          </p>
-          <p className="text-lg text-gray-800">
-            They’ve been my inspiration, my motivation, and—let’s be honest—my product testers and live-in models from day one.
-          </p>
+          <h2 className="text-3xl font-bold text-pink-600 mb-4">Why PetCure?</h2>
+          <p className="text-gray-700 mb-6"></p>
+          Because today’s pet parents expect better—and PetCure delivers. We eliminate the fear, stress, and hassle of nail care with a passive, science-backed solution pets and owners love. No sedation. No traumatic vet trips. No expensive grooming bills. Just effortless, natural nail health—engineered to fit beautifully into any modern home. PetCure is redefining pet wellness, one step at a time.<p/>          <p className="text-pink-500 font-semibold">Step. File. Repeat.</p>
         </motion.div>
 
-        {/* Product Intro */}
+        {/* Product Highlights */}
         <motion.div
           initial={{ opacity: 0, y: 40 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.7, duration: 1 }}
-          className="bg-white rounded-2xl shadow-md border border-pink-200 p-6 mb-10"
+          transition={{ delay: 0.6, duration: 1 }}
+          className="grid grid-cols-1 md:grid-cols-2 gap-12 mb-20"
         >
-          <p className="text-lg text-gray-800">
-            The idea for PetCure was born from a real problem I faced as a pet parent: the stress, struggle, and expense of regular nail trims. Karma and Bea couldn’t be more different in size, personality, or lifestyle—making it nearly impossible to find a grooming solution that worked for both. That’s what pushed me to create a stress-free, passive nail care system for every kind of home.
-          </p>
+          <div className="bg-white rounded-2xl shadow-lg border border-pink-200 p-6 flex-1 flex flex-col justify-between items-center text-center">
+          <img
+                src="/images/pedi-steps1.jpg"
+                alt="PediSteps"
+                className="w-full"
+              />
+         
+            <h3 className="text-2xl font-bold text-pink-600 mb-4">PediSteps</h3>
+            <p className="text-gray-700">
+              Textured stair pads for multi-level homes. Files your pet’s nails naturally as they walk.
+            </p>
+          </div>
+          <div className="bg-white rounded-2xl shadow-lg border border-pink-200 p-6 flex-1 flex flex-col justify-between items-center text-center">
+          <img
+                src="/images/pedi-walk1.jpeg"
+                alt="PediWalk"
+                className="w-full" />
+            <h3 className="text-2xl font-bold center text-pink-600 mb-4">PediWalk</h3>
+            <p className="text-gray-700">
+              The hallway-friendly solution for single-level living. Same passive nail filing, no stairs needed.
+            </p>
+          </div>
         </motion.div>
 
-        {/* Highlight Card */}
-        <motion.div
+        {/* Founder Story */}
+        {/* <motion.div
           initial={{ opacity: 0, y: 40 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.9, duration: 1 }}
-          className="bg-pink-50/60 backdrop-blur-md p-6 rounded-xl shadow-md border border-pink-200 mb-10"
+          transition={{ delay: 0.8, duration: 1 }}
+          className="text-center mb-20"
         >
-          <p className="text-lg font-medium text-gray-800 leading-relaxed">
-            Our flagship product, <span className="font-semibold text-pink-500">PediSteps</span>, are textured stair pads that file your pet’s nails as they walk—no clippers, no groomer visits, no stress, just: Step. File. Repeat. And for homes without stairs, we’re excited to soon launch <span className="font-semibold text-pink-500">PediWalk</span>, a hallway version of the same paw-friendly innovation.
+          <h2 className="text-3xl font-bold text-pink-600 mb-4">About the Creator</h2>
+          <p className="text-lg text-gray-700 max-w-3xl mx-auto mb-8">
+            Hi, I’m <span className="text-pink-500 font-bold">Taylor</span> — a devoted pet mom, entrepreneur, and the heart behind PetCure. Inspired by my two pups, Karma (the bossy Pomsky) and Bea (the regal Akita), PetCure was born from the real challenges of modern pet care.
           </p>
-        </motion.div>
+
+          <div className="w-full max-w-3xl mx-auto mb-10">
+            <img
+              src="/images/karma-bea2.jpeg"
+              alt="Taylor, Karma, and Bea"
+              className="w-full rounded-xl border border-pink-200 shadow-md object-cover"
+            />
+          </div>
+          <p className="italic text-pink-400">
+            No, Karma and Bea aren’t *actually* sisters—but don’t tell them that. Karma definitely thinks she’s the boss.
+          </p>
+        </motion.div> */}
 
         {/* Product Architecture */}
         <motion.div
           initial={{ opacity: 0, y: 40 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 1.1, duration: 1 }}
-          className="bg-white rounded-2xl shadow-md border border-pink-200 p-6 mb-10 flex flex-col items-center"
+          transition={{ delay: 1, duration: 1 }}
+          className="bg-white rounded-2xl shadow-md border border-pink-200 p-8 mb-20 flex flex-col items-center"
         >
           <h3 className="text-2xl font-bold text-pink-600 mb-4">Product Architecture</h3>
-          <p className="text-gray-700 text-center max-w-2xl mb-4">
-            Each PediStep and PediWalk features a carefully engineered dual-layer design—combining a textured emery surface with a studded, non-slip vinyl base. This ensures both function and comfort while blending seamlessly into your home.
+          <p className="text-gray-700 text-center max-w-2xl mb-6">
+            Each PediStep and PediWalk pad features a dual-layer design: a premium textured emery surface bonded to a non-slip, studded vinyl base. Designed for safety, durability, and style.
           </p>
           <img
             src="/images/closeup.jpeg"
-            alt="Close-up view showing PediSteps and PediWalk layers"
-            className="w-full max-w-2xl rounded-lg border border-pink-200 shadow-sm"
+            alt="PediSteps and PediWalk design layers"
+            className="w-full max-w-2xl rounded-lg border border-pink-200 shadow-md"
           />
         </motion.div>
 
-        {/* Nail Health Infographic */}
+        {/* Nail Health Impact */}
         <motion.div
           initial={{ opacity: 0, y: 40 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 1.3, duration: 1 }}
-          className="bg-white rounded-2xl shadow-md border border-pink-200 p-6 mb-10"
+          transition={{ delay: 1.2, duration: 1 }}
+          className="bg-pink-50/60 backdrop-blur-md rounded-2xl shadow-md border border-pink-200 p-8 mb-20"
         >
-          <h3 className="text-2xl font-bold text-pink-600 mb-4">Why Nail Health Matters</h3>
-          <p className="text-lg text-gray-700 mb-4">
-            Overgrown nails can cause your pet’s toes to splay, leading to poor paw posture, joint strain, and orthopedic issues. Regular filing supports proper weight distribution and healthy movement.
+          <h3 className="text-2xl font-bold text-pink-600 mb-4 text-center">Why Nail Health Matters</h3>
+          <p className="text-gray-700 max-w-3xl mx-auto text-center mb-6">
+            Overgrown nails distort your pet’s paw posture, leading to arthritis, joint damage, and mobility problems. Daily passive filing promotes healthy paws—and happier lives.
           </p>
           <img
             src="/images/nail-posture-infographic.jpeg"
-            alt="Dog nail health posture infographic"
-            className="w-full rounded-lg border border-pink-200 shadow-sm"
+            alt="Infographic about pet nail health"
+            className="w-full max-w-3xl rounded-lg border border-pink-200 shadow-md mx-auto"
           />
         </motion.div>
 
-        {/* Lifestyle Photo */}
+        {/* Final Mission Statement */}
         <motion.div
-          initial={{ opacity: 0, y: 40 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 1.5, duration: 1 }}
-          className="bg-pink-50/60 backdrop-blur-md p-6 rounded-xl shadow-md border border-pink-200 mb-10 flex flex-col items-center"
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ delay: 1.4, duration: 1 }}
+          className="text-center"
         >
-         {/* Lifestyle Image of Karma and Bea */}
-<div className="my-10 flex flex-col items-center bg-pink-50/60 backdrop-blur-md p-6 rounded-lg shadow-md">
-  <h3 className="text-2xl font-bold text-pink-500 mb-4">Real Life Inspiration</h3>
-  <p className="text-lg text-gray-700 text-center mb-4 max-w-2xl">
-    Meet the heart behind PetCure—my pups, Karma and Bea. This snapshot captures them doing what they do best: modeling effortlessly, stealing attention, and looking like total opposites. 
-    <span className="italic block mt-2 text-pink-400">No, they’re not *actually* sisters—but they definitely run the household like they are.</span>
-  </p>
-  <div className="w-full max-w-3xl relative rounded-xl overflow-hidden">
-    <div className="absolute inset-0 bg-white/40 backdrop-blur-sm z-10 rounded-xl" />
-    <img
-      src="/images/karma-bea2.jpeg"
-      alt="Karma and Bea looking regal at the dog park"
-      className="relative z-20 w-full rounded-xl border border-pink-200 shadow-md object-cover"
-    />
-  </div>
-</div>
+          <h3 className="text-2xl font-bold text-pink-600 mb-4">Our Mission</h3>
+          <p className="text-gray-700 text-lg max-w-3xl mx-auto mb-8">
+            PetCure exists to create safer, smarter, stress-free grooming solutions that protect pets’ health, comfort, and happiness—naturally.
+          </p>
+          <blockquote className="text-pink-500 italic text-xl font-serif">
+            "Perfect. Polished. Paws."
+          </blockquote>
         </motion.div>
-
-        {/* Mission Statement */}
-        <motion.p
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ delay: 1.7, duration: 1 }}
-          className="text-lg text-center text-gray-800 max-w-3xl mx-auto mb-10"
-        >
-          At PetCure, our mission is simple: to make pet grooming safer, easier, and more comfortable for pets and their humans. Whether you live in a two-story house or a studio apartment, have a 100-pound Akita or a 10-pound tabby, PetCure is designed to fit seamlessly into your routine—and your home.
-        </motion.p>
-
-        {/* Tagline */}
-        <motion.blockquote
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ delay: 1.9, duration: 1 }}
-          className="text-pink-500 text-xl font-serif italic text-center"
-        >
-          “Because grooming should feel like care, not a chore. Because every pet deserves a Perfect. Polished. Paw.”
-        </motion.blockquote>
       </div>
     </section>
   );
