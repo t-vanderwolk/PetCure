@@ -53,7 +53,7 @@ function About() {
           className="bg-pink-50/60 backdrop-blur-md p-6 rounded-xl shadow-md border border-pink-200 mb-10"
         >
           <p className="text-lg font-medium text-gray-800 leading-relaxed">
-            Our flagship product, <span className="font-semibold text-pink-500">PediSteps</span>, are textured stair pads that file your pet’s nails as they walk—no clippers, no groomer visits, no stress. And for homes without stairs, we’re excited to soon launch <span className="font-semibold text-pink-500">PediWalk</span>, a hallway version of the same paw-friendly innovation.
+            Our flagship product, <span className="font-semibold text-pink-500">PediSteps</span>, are textured stair pads that file your pet’s nails as they walk—no clippers, no groomer visits, no stress, just: Step. File. Repeat. And for homes without stairs, we’re excited to soon launch <span className="font-semibold text-pink-500">PediWalk</span>, a hallway version of the same paw-friendly innovation.
           </p>
         </motion.div>
 
@@ -100,15 +100,22 @@ function About() {
           transition={{ delay: 1.5, duration: 1 }}
           className="bg-pink-50/60 backdrop-blur-md p-6 rounded-xl shadow-md border border-pink-200 mb-10 flex flex-col items-center"
         >
-          <h3 className="text-2xl font-bold text-pink-600 mb-4">Real Life Inspiration</h3>
-          <p className="text-lg text-gray-700 text-center mb-4 max-w-2xl">
-            Meet Karma and Bea—my ride-or-die duo. No, they’re not *actually* sisters... but Karma (the older sister and undeniable alpha) runs a tight ship. They’ve tested every prototype and approved every paw-filed step.
-          </p>
-          <img
-            src="/images/karma-bea2.jpeg"
-            alt="Taylor with Karma and Bea at home"
-            className="w-full max-w-3xl rounded-xl border border-pink-200 shadow-md object-cover"
-          />
+         {/* Lifestyle Image of Karma and Bea */}
+<div className="my-10 flex flex-col items-center bg-pink-50/60 backdrop-blur-md p-6 rounded-lg shadow-md">
+  <h3 className="text-2xl font-bold text-pink-500 mb-4">Real Life Inspiration</h3>
+  <p className="text-lg text-gray-700 text-center mb-4 max-w-2xl">
+    Meet the heart behind PetCure—my pups, Karma and Bea. This snapshot captures them doing what they do best: modeling effortlessly, stealing attention, and looking like total opposites. 
+    <span className="italic block mt-2 text-pink-400">No, they’re not *actually* sisters—but they definitely run the household like they are.</span>
+  </p>
+  <div className="w-full max-w-3xl relative rounded-xl overflow-hidden">
+    <div className="absolute inset-0 bg-white/40 backdrop-blur-sm z-10 rounded-xl" />
+    <img
+      src="/images/karma-bea2.jpeg"
+      alt="Karma and Bea looking regal at the dog park"
+      className="relative z-20 w-full rounded-xl border border-pink-200 shadow-md object-cover"
+    />
+  </div>
+</div>
         </motion.div>
 
         {/* Mission Statement */}

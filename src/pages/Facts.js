@@ -32,32 +32,58 @@ const Facts = () => {
   };
 
   return (
-    <div className="p-10 max-w-4xl mx-auto pt-24">
-      <h1 className="text-4xl font-bold text-pink-600 text-center mb-6">FAQ</h1>
-      {facts.map(({ q, a }, i) => (
-        <div key={i} className="mb-6 border-b border-pink-200 pb-4">
-          <button
-            onClick={() => toggleAnswer(i)}
-            className="text-left w-full text-xl font-semibold text-pink-500 hover:text-pink-600 transition mb-2"
-          >
-            {q}
-          </button>
-          <AnimatePresence>
-            {openIndex === i && (
-              <motion.div
-                key="answer"
-                initial={{ opacity: 0, height: 0 }}
-                animate={{ opacity: 1, height: 'auto' }}
-                exit={{ opacity: 0, height: 0 }}
-                transition={{ duration: 0.3 }}
+    <section className="bg-pink-50 pt-24 pb-20 min-h-screen">
+      <div className="max-w-5xl mx-auto px-6">
+        {/* Section Heading */}
+        <motion.div
+          initial={{ opacity: 0, y: 60 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 0.2, duration: 0.8 }}
+          className="text-center mb-12"
+        >
+          <h1 className="text-4xl font-bold text-pink-600 mb-4">FAQ</h1>
+          <p className="text-gray-600 max-w-2xl mx-auto">
+            Your top questions, answered. If it’s paw-sible you’re wondering, it’s probably here!
+          </p>
+        </motion.div>
+
+        {/* Accordion Items */}
+        <motion.div
+          initial={{ opacity: 0, y: 60 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 0.5, duration: 1 }}
+          className="space-y-6"
+        >
+          {facts.map(({ q, a }, i) => (
+            <div
+              key={i}
+              className="bg-white border border-pink-200 rounded-xl shadow-md p-4 transition duration-300"
+            >
+              <button
+                onClick={() => toggleAnswer(i)}
+                className="w-full text-left text-xl font-semibold text-pink-500 hover:text-pink-600 transition"
               >
-                <p className="text-gray-700 leading-relaxed">{a}</p>
-              </motion.div>
-            )}
-          </AnimatePresence>
-        </div>
-      ))}
-    </div>
+                {q}
+              </button>
+              <AnimatePresence>
+                {openIndex === i && (
+                  <motion.div
+                    key="answer"
+                    initial={{ opacity: 0, height: 0 }}
+                    animate={{ opacity: 1, height: 'auto' }}
+                    exit={{ opacity: 0, height: 0 }}
+                    transition={{ duration: 0.4 }}
+                    className="mt-3 text-gray-700 leading-relaxed"
+                  >
+                    {a}
+                  </motion.div>
+                )}
+              </AnimatePresence>
+            </div>
+          ))}
+        </motion.div>
+      </div>
+    </section>
   );
 };
 

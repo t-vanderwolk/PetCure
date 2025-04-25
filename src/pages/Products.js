@@ -4,7 +4,12 @@ import { motion } from 'framer-motion';
 
 function Products() {
   return (
-    <section className="bg-pink-50 pt-24 pb-20 min-h-screen">
+    <motion.section
+      initial={{ opacity: 0, y: 30 }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={{ duration: 1.2, ease: 'easeOut' }}
+      className="bg-pink-50 pt-24 pb-20 min-h-screen"
+    >
       <div className="max-w-6xl mx-auto px-6">
         {/* Section Heading */}
         <div className="text-center mb-16">
@@ -14,20 +19,11 @@ function Products() {
           </p>
         </div>
 
-        {/* Optional Hero Image */}
-        {/* <div className="w-full mb-16">
-          <img
-            src="/images/pedi-steps-hero.jpeg"
-            alt="Dog walking on PediSteps"
-            className="rounded-xl shadow-lg w-full object-cover max-h-[500px]"
-          />
-        </div> */}
-
         {/* Product Cards */}
         <motion.div
-          initial={{ opacity: 0, y: 60 }}
+          initial={{ opacity: 0, y: 40 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.5, duration: 1 }}
+          transition={{ delay: 0.6, duration: 1 }}
           className="grid grid-cols-1 md:grid-cols-2 gap-12"
         >
           {/* PediSteps */}
@@ -77,7 +73,7 @@ function Products() {
           </div>
         </motion.div>
       </div>
-    </section>
+    </motion.section>
   );
 }
 
