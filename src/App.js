@@ -1,6 +1,7 @@
 import './index.css';
 import React from 'react';
 import { BrowserRouter as Router, Routes, Route, useLocation  } from 'react-router-dom';
+import ScrollToTop from './utility/ScrollToTop';
 // import HeroSection from './components/HeroSection';
 import Navbar from './components/Navbar';
 import About from './pages/About';
@@ -101,6 +102,7 @@ function App() {
   return (
   
     <Router>
+      <ScrollToTop />
 <AppContent />
 
     </Router>

@@ -5,43 +5,37 @@ import { motion } from 'framer-motion';
 
 function CallToAction() {
   return (
-    <motion.section
-      initial={{ opacity: 0, y: 60 }}
-      animate={{ opacity: 1, y: 0 }}
-      transition={{ delay: 0.5, duration: 1 }}
-      className="bg-pink-50 py-16 px-6 relative z-10"
-    >
-      <div className="max-w-5xl mx-auto text-center bg-white/30 backdrop-blur-md p-8 rounded-2xl shadow-lg">
-        <motion.h2
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.7, duration: 1 }}
-          className="text-4xl md:text-5xl font-bold text-pink-600 mb-6"
-        >
+    <section className="w-full px-6 mt-10">
+      <motion.div
+        initial={{ opacity: 0, y: 40 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ delay: 4.5, duration: 1 }}
+        className="max-w-4xl mx-auto flex flex-col items-center text-center space-y-6"
+      >
+        <h2 className="text-3xl md:text-4xl font-bold text-pink-600">
           Ready to Step Up Your Pet’s Wellness?
-        </motion.h2>
-        <motion.p
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.9, duration: 1 }}
-          className="text-lg md:text-xl text-gray-700 mb-8 max-w-3xl mx-auto"
-        >
+        </h2>
+        <p className="text-lg text-gray-700 max-w-2xl">
           Discover the effortless way to support healthy paws, polished nails, and happier pets—without the stress.
-        </motion.p>
-        <motion.div
-          initial={{ opacity: 0, scale: 0.95 }}
-          animate={{ opacity: 1, scale: 1 }}
-          transition={{ delay: 1.1, duration: 0.8 }}
-        >
+        </p>
+
+        {/* Button Group */}
+        <div className="flex flex-col md:flex-row gap-4 mt-4">
           <Link
             to="/products"
-            className="inline-block px-8 py-4 bg-pink-500 text-white text-lg font-semibold rounded-full shadow-md hover:bg-pink-600 transition"
+            className="px-8 py-3 bg-pink-500 text-white font-semibold rounded-full shadow-md hover:bg-pink-600 transition text-lg"
           >
-            Explore Our Products
+            Browse Products
           </Link>
-        </motion.div>
-      </div>
-    </motion.section>
+          <Link
+            to="/about"
+            className="px-8 py-3 border border-pink-500 text-pink-500 font-semibold rounded-full hover:bg-pink-50 transition text-lg"
+          >
+            Learn More
+          </Link>
+        </div>
+      </motion.div>
+    </section>
   );
 }
 

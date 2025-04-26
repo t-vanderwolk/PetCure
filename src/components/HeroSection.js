@@ -44,7 +44,7 @@ function HeroSection() {
   };
 
   return (
-    <div className="relative shadow-lg h-screen overflow-hidden">
+    <div className="relative shadow-lg h-full">
       {/* Carousel Images */}
       <AnimatePresence>
         <motion.img
