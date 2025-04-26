@@ -14,6 +14,7 @@ import Products from './pages/Products';
 import Facts from './pages/Facts';
 import Compare from './pages/Compare';
 import CallToAction from './components/CallToAction';
+import Invest from './pages/Invest';
 
 function AppContent() {
   const location = useLocation();
@@ -30,6 +31,8 @@ function AppContent() {
         <Route path="/products" element={<Products />} />
         <Route path="/compare" element={<Compare />} />
         <Route path="/contact" element={<Contact />} />
+        <Route path="/invest" element={<Invest />} />
+
         <Route path="/coming-soon" element={<ComingSoon />} />
         <Route path="/pedisteps" element={<PediSteps />} />
         <Route path="/pediwalk" element={<PediWalk />} />
