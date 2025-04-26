@@ -1,6 +1,7 @@
+// src/pages/About.js
 import React from 'react';
 import { motion } from 'framer-motion';
-
+import { Link } from 'react-router-dom';
 
 function About() {
   return (
@@ -28,7 +29,7 @@ function About() {
         >
           <h2 className="text-3xl font-bold text-pink-600 mb-4">Why PetCure?</h2>
           <p className="text-gray-700 mb-6">
-            Because today’s pet parents expect better—and PetCure delivers. We eliminate the fear, stress, and hassle of nail care with a passive, science-backed solution pets and owners love. 
+            Because today’s pet parents expect better—and PetCure delivers. We eliminate the fear, stress, and hassle of nail care with a passive, science-backed solution pets and owners love.
             No sedation. No traumatic vet trips. No expensive grooming bills. Just effortless, natural nail health—engineered to fit beautifully into any modern home.
           </p>
           <p className="text-pink-500 font-semibold">Step. File. Repeat.</p>
@@ -43,20 +44,32 @@ function About() {
         >
           {/* PediSteps */}
           <div className="bg-white rounded-2xl shadow-lg border border-pink-200 p-6 flex flex-col justify-between items-center text-center">
-            <img src="/images/pedi-steps1.jpg" alt="PediSteps" className="w-full" />
+            <img src="/images/pedi-steps1.jpg" alt="PediSteps" className="w-full rounded-xl mb-4" />
             <h3 className="text-2xl font-bold text-pink-600 mb-4">PediSteps</h3>
-            <p className="text-gray-700">
+            <p className="text-gray-700 mb-6">
               Textured stair pads for multi-level homes. Files your pet’s nails naturally as they walk.
             </p>
+            <Link
+              to="/pedisteps"
+              className="inline-block mt-4 px-6 py-3 text-white bg-pink-500 rounded-full shadow-md hover:bg-pink-600 transition font-semibold"
+            >
+              Buy Now
+            </Link>
           </div>
 
           {/* PediWalk */}
           <div className="bg-white rounded-2xl shadow-lg border border-pink-200 p-6 flex flex-col justify-between items-center text-center">
-            <img src="/images/pedi-walk1.jpeg" alt="PediWalk" className="w-full" />
+            <img src="/images/pedi-walk1.jpeg" alt="PediWalk" className="w-full rounded-xl mb-4" />
             <h3 className="text-2xl font-bold text-pink-600 mb-4">PediWalk</h3>
-            <p className="text-gray-700">
+            <p className="text-gray-700 mb-6">
               The hallway-friendly solution for single-level living. Same passive nail filing, no stairs needed.
             </p>
+            <Link
+              to="/pediwalk"
+              className="inline-block mt-4 px-6 py-3 text-white bg-pink-500 rounded-full shadow-md hover:bg-pink-600 transition font-semibold"
+            >
+              Buy Now
+            </Link>
           </div>
         </motion.div>
 
@@ -78,68 +91,47 @@ function About() {
           />
         </motion.div>
 
-        {/* How It Works Section */}
-       {/* How It Works */}
-{/* How It Works */}
-<motion.div
-  initial={{ opacity: 0, y: 40 }}
-  animate={{ opacity: 1, y: 0 }}
-  transition={{ delay: 1.1, duration: 1 }}
-  className="bg-white rounded-2xl shadow-md border border-pink-200 p-8 mb-20 text-center"
->
-  <h3 className="text-2xl font-bold text-pink-600 mb-4">How It Works</h3>
-  <p className="text-gray-700 text-lg max-w-3xl mx-auto mb-6">
-    Simply place PediSteps on your stairs or PediWalk in your hallway. As your pet walks, the textured emery surface gently files their nails—no clipping, no noise, no stress.
-  </p>
+        {/* How It Works */}
+        <motion.div
+          initial={{ opacity: 0, y: 40 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 1.0, duration: 1 }}
+          className="bg-white rounded-2xl shadow-md border border-pink-200 p-8 mb-20 text-center"
+        >
+          <h3 className="text-2xl font-bold text-pink-600 mb-4">How It Works</h3>
+          <p className="text-gray-700 text-lg max-w-3xl mx-auto mb-6">
+            Simply place PediSteps on your stairs or PediWalk in your hallway. As your pet walks, the textured emery surface gently files their nails—no clipping, no noise, no stress.
+          </p>
 
-  {/* Hero Visual */}
-  <img
-    src="/images/pedi-steps-hero.jpeg" // rename your file to match this if needed
-    alt="Dog using PediSteps on stairs"
-    className="w-full max-w-2xl mx-auto rounded-xl border border-pink-200 shadow-lg"
-  />
-  <p className="text-gray-600 italic mt-4 text-sm">
-    Real-life demo starring Bea: stair queen, nail model, house security.
-  </p>
+          {/* Hero Visual */}
+          <img
+            src="/images/pedi-steps-hero.jpeg"
+            alt="Dog using PediSteps"
+            className="w-full max-w-2xl mx-auto rounded-xl border border-pink-200 shadow-lg"
+          />
+          <p className="text-gray-600 italic mt-4 text-sm">
+            Real-life demo starring Bea: stair queen, nail model, house security.
+          </p>
 
-  {/* 3-Step Visual Guide */}
-  <div className="mt-10 grid grid-cols-1 md:grid-cols-3 gap-8 text-center">
-    {/* Step 1 */}
-    <div className="flex flex-col items-center">
-      <div className="w-16 h-16 flex items-center justify-center bg-pink-100 rounded-full text-pink-600 font-bold text-xl mb-4">
-        1
-      </div>
-      <h4 className="font-semibold text-pink-600 mb-2">Step</h4>
-      <p className="text-gray-700 text-sm">
-        Your pet walks up the stairs or across the hallway like they normally would.
-      </p>
-    </div>
+          {/* 3 Step Process */}
+          <div className="mt-10 grid grid-cols-1 md:grid-cols-3 gap-8">
+            {[
+              { number: 1, title: "Step", desc: "Your pet walks up stairs or across the hallway." },
+              { number: 2, title: "File", desc: "The emery surface gently shapes their nails with every step." },
+              { number: 3, title: "Repeat", desc: "Effortless maintenance from everyday movement!" }
+            ].map((step) => (
+              <div key={step.number} className="flex flex-col items-center">
+                <div className="w-16 h-16 flex items-center justify-center bg-pink-100 rounded-full text-pink-600 font-bold text-xl mb-4">
+                  {step.number}
+                </div>
+                <h4 className="font-semibold text-pink-600 mb-2">{step.title}</h4>
+                <p className="text-gray-700 text-sm">{step.desc}</p>
+              </div>
+            ))}
+          </div>
+        </motion.div>
 
-    {/* Step 2 */}
-    <div className="flex flex-col items-center">
-      <div className="w-16 h-16 flex items-center justify-center bg-pink-100 rounded-full text-pink-600 font-bold text-xl mb-4">
-        2
-      </div>
-      <h4 className="font-semibold text-pink-600 mb-2">File</h4>
-      <p className="text-gray-700 text-sm">
-        The emery surface makes gentle, even contact with each paw—naturally filing nails.
-      </p>
-    </div>
-
-    {/* Step 3 */}
-    <div className="flex flex-col items-center">
-      <div className="w-16 h-16 flex items-center justify-center bg-pink-100 rounded-full text-pink-600 font-bold text-xl mb-4">
-        3
-      </div>
-      <h4 className="font-semibold text-pink-600 mb-2">Repeat</h4>
-      <p className="text-gray-700 text-sm">
-        With every daily stroll, your pet gets a spa-level paw-dicure. No effort required.
-      </p>
-    </div>
-  </div>
-</motion.div>
-
-        {/* Nail Health Impact */}
+        {/* Nail Health */}
         <motion.div
           initial={{ opacity: 0, y: 40 }}
           animate={{ opacity: 1, y: 0 }}
@@ -148,16 +140,16 @@ function About() {
         >
           <h3 className="text-2xl font-bold text-pink-600 mb-4 text-center">Why Nail Health Matters</h3>
           <p className="text-gray-700 max-w-3xl mx-auto text-center mb-6">
-            Overgrown nails distort your pet’s paw posture, leading to arthritis, joint damage, and mobility problems. Daily passive filing promotes healthy paws—and happier lives.
+            Overgrown nails distort paw posture, causing arthritis, joint pain, and instability. Passive filing keeps paws strong and pain-free.
           </p>
           <img
             src="/images/nail-posture-infographic.jpeg"
-            alt="Infographic about pet nail health"
-            className="w-full max-w-3xl rounded-lg border border-pink-200 shadow-md mx-auto"
+            alt="Nail health infographic"
+            className="w-full max-w-3xl mx-auto rounded-lg border border-pink-200 shadow-md"
           />
         </motion.div>
 
-        {/* Final Mission Statement */}
+        {/* Final Mission */}
         <motion.div
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
@@ -166,14 +158,13 @@ function About() {
         >
           <h3 className="text-2xl font-bold text-pink-600 mb-4">Our Mission</h3>
           <p className="text-gray-700 text-lg max-w-3xl mx-auto mb-8">
-            PetCure exists to create safer, smarter, stress-free grooming solutions that protect pets’ health, comfort, and happiness—naturally.
+            PetCure creates safer, smarter, stress-free grooming solutions that protect pets’ health, comfort, and happiness—naturally.
           </p>
           <blockquote className="text-pink-500 italic text-xl font-serif">
             "Perfect. Polished. Paws."
           </blockquote>
-       
-
         </motion.div>
+
       </div>
     </section>
   );

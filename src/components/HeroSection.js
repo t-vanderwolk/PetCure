@@ -1,6 +1,7 @@
+// src/components/HeroSection.js
 import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Link,} from 'react-router-dom';
+import { Link } from 'react-router-dom';
 
 const images = [
   '/images/hero-banner1.jpeg',
@@ -21,7 +22,6 @@ const images = [
 function HeroSection() {
   const [index, setIndex] = useState(0);
   const [startAnimation, setStartAnimation] = useState(true);
-  // const navigate = useNavigate();
 
   useEffect(() => {
     const doorTimer = setTimeout(() => setStartAnimation(false), 2000);
@@ -44,18 +44,18 @@ function HeroSection() {
   };
 
   return (
-    <div className="relative shadow-lg h-full">
+    <div className="relative shadow-lg min-h-screen flex flex-col justify-center">
       {/* Carousel Images */}
       <AnimatePresence>
         <motion.img
           key={images[index]}
           src={images[index]}
-          alt={`Hero image ${index + 1} - PetCure carousel`}
+          alt={`Hero image ${index + 1}`}
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           exit={{ opacity: 0 }}
           transition={{ duration: 1 }}
-          className="w-full h-full object-cover"
+          className="absolute w-full h-full object-center"
         />
       </AnimatePresence>
 
@@ -66,49 +66,48 @@ function HeroSection() {
             initial={{ x: 0 }}
             animate={{ x: "-100%" }}
             transition={{ duration: 2 }}
-            className="absolute top-0 left-0 w-1/2 h-full bg-white/20 backdrop-blur-sm z-20"
+            className="absolute top-0 left-0 w-1/2 h-full bg-white/20 backdrop-blur-md z-20"
           />
           <motion.div
             initial={{ x: 0 }}
             animate={{ x: "100%" }}
             transition={{ duration: 2 }}
-            className="absolute top-0 right-0 w-1/2 h-full bg-white/20 backdrop-blur-sm z-20"
+            className="absolute top-0 right-0 w-1/2 h-full bg-white/20 backdrop-blur-md z-20"
           />
         </>
       )}
 
-      {/* Tagline and Buttons */}
+      {/* Tagline and CTA Buttons */}
       <motion.div
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ delay: 2, duration: 1 }}
-        className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 z-30 text-center flex flex-col items-center space-y-8"
+        className="relative z-30 text-center px-6 flex flex-col items-center"
       >
-        {/* Tagline */}
-        <div className="px-6 py-4 rounded-xl bg-white/30 backdrop-blur-md">
-          <div className="flex gap-2 justify-center text-3xl md:text-5xl font-bold text-pink-500 drop-shadow-lg">
+        <div className="bg-white/40 backdrop-blur-md px-4 py-2 rounded-xl mb-6">
+          <div className="flex flex-wrap justify-center gap-2 text-2xl sm:text-3xl md:text-5xl font-bold text-pink-500 drop-shadow-lg">
             <motion.span initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 2.2, duration: 0.6 }}>Perfect.</motion.span>
             <motion.span initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 2.8, duration: 0.6 }}>Polished.</motion.span>
             <motion.span initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 3.4, duration: 0.6 }}>Paws.</motion.span>
           </div>
         </div>
 
-        {/* CTA Buttons */}
+        {/* Buttons */}
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 4, duration: 0.8 }}
-          className="flex gap-6 mt-8"
+          className="flex flex-col sm:flex-row gap-4 items-center"
         >
           <Link
             to="/about"
-            className="px-6 py-3 bg-pink-500 text-white rounded-full shadow-md hover:bg-pink-600 transition text-lg font-semibold"
+            className="px-6 py-3 bg-pink-500 text-white rounded-full shadow-md hover:bg-pink-600 transition text-lg font-semibold w-48 text-center"
           >
             Learn More
           </Link>
           <Link
             to="/products"
-            className="px-6 py-3 bg-white/70 backdrop-blur-md text-pink-500 rounded-full shadow-md hover:bg-white transition text-lg font-semibold"
+            className="px-6 py-3 bg-white/80 backdrop-blur-md text-pink-500 rounded-full shadow-md hover:bg-white transition text-lg font-semibold w-48 text-center"
           >
             Browse Products
           </Link>
@@ -116,19 +115,19 @@ function HeroSection() {
       </motion.div>
 
       {/* Carousel Toggle Buttons */}
-      <div className="absolute z-40 top-1/2 left-2 transform -translate-y-1/2">
+      <div className="absolute top-1/2 left-4 transform -translate-y-1/2 z-40">
         <button
-          aria-label="Previous slide"
           onClick={prevImage}
+          aria-label="Previous slide"
           className="bg-white/60 backdrop-blur-sm text-pink-500 font-bold px-3 py-1 rounded hover:bg-white/80"
         >
           ◀
         </button>
       </div>
-      <div className="absolute z-40 top-1/2 right-2 transform -translate-y-1/2">
+      <div className="absolute top-1/2 right-4 transform -translate-y-1/2 z-40">
         <button
-          aria-label="Next slide"
           onClick={nextImage}
+          aria-label="Next slide"
           className="bg-white/60 backdrop-blur-sm text-pink-500 font-bold px-3 py-1 rounded hover:bg-white/80"
         >
           ▶

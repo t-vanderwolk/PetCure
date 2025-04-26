@@ -44,7 +44,7 @@ function Products() {
                 to="/pedisteps"
                 className="px-5 py-2 text-white bg-pink-500 rounded-full shadow hover:bg-pink-600 transition font-medium"
               >
-                Learn More
+                Buy Now
               </Link>
             </div>
           </div>
@@ -67,7 +67,7 @@ function Products() {
                 to="/pediwalk"
                 className="px-5 py-2 text-white bg-pink-500 rounded-full shadow hover:bg-pink-600 transition font-medium"
               >
-                Learn More
+                Buy Now
               </Link>
             </div>
           </div>
