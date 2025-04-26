@@ -5,7 +5,7 @@
 /* -------------------- */
 /* Compare Table Styles */
 /* -------------------- */
-
+/* 
  .compare-table {
   width: 100%;
   background-color: #ffffff;
@@ -52,7 +52,7 @@
 }
 
 /* Fade-in animation */
-.fade-in {
+/* .fade-in {
   animation: fadeInUp 1s ease forwards;
 }
 
@@ -65,12 +65,12 @@
     opacity: 1;
     transform: translateY(0px);
   }
-}
+} */
 /* -------------------------- */
 /* Highlight PetCure Column */
 /* -------------------------- */
 
-.compare-table th:nth-child(2),
+/* .compare-table th:nth-child(2),
 .compare-table td:nth-child(2) {
   background-color: #ffe4f1; 
   font-weight: 700;
@@ -88,4 +88,24 @@
   .compare-table td:nth-child(2) {
     background-color: #ffe4f1;
   }
-} 
+}   */
+.comparison-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-bottom: 2rem;
+}
+.comparison-table th, .comparison-table td {
+  padding: 1rem;
+  text-align: center;
+  border: 1px solid #fbcfe8; /* light pink */
+}
+.comparison-table th {
+  background-color: #ffe4e6; /* lighter pink for header */
+  color: #be185d; /* strong pink */
+  font-weight: bold;
+}
+.highlight {
+  background-color: #f9d3dd;
+  font-weight: bold;
+  color: #be185d;
+}

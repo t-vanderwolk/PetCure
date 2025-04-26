@@ -1,6 +1,7 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 
+
 function About() {
   return (
     <section className="bg-pink-50 pt-24 pb-20 min-h-screen">
@@ -170,6 +171,8 @@ function About() {
           <blockquote className="text-pink-500 italic text-xl font-serif">
             "Perfect. Polished. Paws."
           </blockquote>
+       
+
         </motion.div>
       </div>
     </section>

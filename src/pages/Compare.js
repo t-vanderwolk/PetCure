@@ -1,122 +1,154 @@
-// src/pages/Compare.js
 import React from 'react';
 import { motion } from 'framer-motion';
-import CallToAction from '../components/CallToAction'; // adjust path if needed
+// import '../index.css'; // Make sure index.css includes your Compare table styles
 
 function Compare() {
+  const nailCareData = [
+    { feature: 'Passive Daily Grooming', petcure: true, clipping: false, grinding: false, scratchBoard: false, hammock: false, handFiler: false },
+    { feature: 'Fear-Free', petcure: true, clipping: false, grinding: false, scratchBoard: true, hammock: false, handFiler: false },
+    { feature: 'No Restraint Needed', petcure: true, clipping: false, grinding: false, scratchBoard: true, hammock: false, handFiler: false },
+    { feature: 'Stylish Home Integration', petcure: true, clipping: false, grinding: false, scratchBoard: false, hammock: false, handFiler: false },
+    { feature: 'Noise-Free', petcure: true, clipping: false, grinding: false, scratchBoard: true, hammock: true, handFiler: true },
+    { feature: 'Custom Sizing Available', petcure: true, clipping: false, grinding: false, scratchBoard: false, hammock: false, handFiler: false },
+    { feature: 'Low Maintenance', petcure: true, clipping: false, grinding: false, scratchBoard: false, hammock: false, handFiler: false },
+    { feature: 'Designed for Back & Front Paws', petcure: true, clipping: true, grinding: true, scratchBoard: false, hammock: true, handFiler: true },
+  ];
+
+  const homeDecorData = [
+    { feature: 'Protects Flooring/Stairs', petcure: true, stairTreads: true, stairRunner: true, antiSlipTape: true },
+    { feature: 'Files Pet Nails', petcure: true, stairTreads: false, stairRunner: false, antiSlipTape: false },
+    { feature: 'Adds Home Aesthetic', petcure: true, stairTreads: true, stairRunner: true, antiSlipTape: false },
+    { feature: 'Non-Slip Safety', petcure: true, stairTreads: true, stairRunner: true, antiSlipTape: true },
+    { feature: 'Custom Sizing', petcure: true, stairTreads: sometimes(), stairRunner: true, antiSlipTape: sometimes() },
+    { feature: 'Low Profile Design', petcure: true, stairTreads: true, stairRunner: true, antiSlipTape: true },
+  ];
+
+  function renderYesNo(value) {
+    if (value === true) return <span className="text-green-500 font-bold">✔️</span>;
+    if (value === false) return <span className="text-red-400 font-bold">✖️</span>;
+    return <span className="text-yellow-400 font-bold">➖</span>;
+  }
+
+  function sometimes() {
+    return <span className="text-yellow-400 font-bold">➖</span>;
+  }
+
   return (
-    <section className="bg-pink-50 pt-24 pb-20 min-h-screen">
-      <div className="max-w-7xl mx-auto px-6">
+    <section className="bg-pink-50 pt-24 pb-20 min-h-screen px-6">
+      <div className="max-w-7xl mx-auto">
         {/* Page Heading */}
         <motion.div
           initial={{ opacity: 0, y: 60 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 1 }}
+          transition={{ delay: 0.2, duration: 1 }}
           className="text-center mb-16"
         >
           <h1 className="text-5xl font-bold text-pink-600 mb-4">How PetCure Stacks Up</h1>
-          <p className="text-gray-700 max-w-3xl mx-auto text-lg">
-            A side-by-side comparison of PetCure versus traditional nail care methods.
+          <p className="text-gray-700 max-w-2xl mx-auto text-lg">
+            See how PetCure stands apart from traditional grooming tools and everyday stair solutions.
           </p>
         </motion.div>
 
-        {/* Comparison Table */}
+        <motion.div
+  initial={{ opacity: 0 }}
+  animate={{ opacity: 1 }}
+  transition={{ delay: 0.3, duration: 1 }}
+  className="text-center mb-8"
+>
+  <h2 className="text-3xl font-bold text-pink-600 mb-4">PetCure vs Traditional Nail Care Solutions</h2>
+  <p className="text-gray-700 max-w-3xl mx-auto text-lg">
+    We compared PetCure to common pet nail care options like clipping, grinding, scratch boards, grooming hammocks, and hand-held nail filers.
+    See why PetCure offers the only passive, stress-free, daily solution for natural nail health.
+  </p>
+</motion.div>
+
+        {/* Nail Care Comparison Table */}
         <motion.div
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ delay: 0.4, duration: 1 }}
-          className="overflow-x-auto"
+          className="overflow-x-auto mb-20"
         >
-          <table className="w-full table-auto bg-white rounded-2xl shadow-lg border border-pink-200">
-            <thead className="bg-pink-100">
+          <table className="comparison-table">
+            <thead>
               <tr>
-                <th className="py-4 px-6 text-left text-pink-600 text-xl font-bold">Feature</th>
-                <th className="py-4 px-6 text-center text-pink-600 text-xl font-bold">PetCure</th>
-                <th className="py-4 px-6 text-center text-pink-600 text-xl font-bold">Traditional Clipping/Grinding</th>
-                <th className="py-4 px-6 text-center text-pink-600 text-xl font-bold">Scratch Boards</th>
-                <th className="py-4 px-6 text-center text-pink-600 text-xl font-bold">Grooming Hammocks</th>
+                <th>Feature</th>
+                <th className="highlight">PetCure</th>
+                <th>Clipping</th>
+                <th>Grinding</th>
+                <th>Scratch Board</th>
+                <th>Grooming Hammock</th>
+                <th>Hand-Held Nail Filer</th>
               </tr>
             </thead>
-            <tbody className="text-gray-700 text-center">
-              {/* Passive Grooming */}
-              <tr className="border-t border-pink-100">
-                <td className="py-4 px-6 font-semibold text-left">Passive Grooming</td>
-                <td>✅</td>
-                <td>❌</td>
-                <td>✅ (Front Paws Only)</td>
-                <td>❌</td>
-              </tr>
-
-              {/* No Restraints Needed */}
-              <tr className="border-t border-pink-100">
-                <td className="py-4 px-6 font-semibold text-left">No Restraints Needed</td>
-                <td>✅</td>
-                <td>❌</td>
-                <td>✅</td>
-                <td>❌</td>
-              </tr>
-
-              {/* Full Body Movement */}
-              <tr className="border-t border-pink-100">
-                <td className="py-4 px-6 font-semibold text-left">Full Body Movement Allowed</td>
-                <td>✅</td>
-                <td>❌</td>
-                <td>✅</td>
-                <td>❌</td>
-              </tr>
-
-              {/* Covers Front and Back Paws */}
-              <tr className="border-t border-pink-100">
-                <td className="py-4 px-6 font-semibold text-left">Covers Front & Back Paws</td>
-                <td>✅</td>
-                <td>✅</td>
-                <td>❌ (Front Paws Only)</td>
-                <td>❌</td>
-              </tr>
-
-              {/* Fear-Free Experience */}
-              <tr className="border-t border-pink-100">
-                <td className="py-4 px-6 font-semibold text-left">Fear-Free & Stress-Free</td>
-                <td>✅</td>
-                <td>❌</td>
-                <td>✅</td>
-                <td>❌</td>
-              </tr>
-
-              {/* Professional Appearance */}
-              <tr className="border-t border-pink-100">
-                <td className="py-4 px-6 font-semibold text-left">Stylish Home Integration</td>
-                <td>✅</td>
-                <td>❌</td>
-                <td>❌</td>
-                <td>❌</td>
-              </tr>
-
-              {/* Unique Market Position */}
-              <tr className="border-t border-pink-100 bg-pink-50">
-                <td className="py-4 px-6 font-semibold text-left">Only Passive Nail Care Brand</td>
-                <td>✅</td>
-                <td>❌</td>
-                <td>❌</td>
-                <td>❌</td>
-              </tr>
+            <tbody>
+              {nailCareData.map((row, idx) => (
+                <tr key={idx}>
+                  <td>{row.feature}</td>
+                  <td className="highlight">{renderYesNo(row.petcure)}</td>
+                  <td>{renderYesNo(row.clipping)}</td>
+                  <td>{renderYesNo(row.grinding)}</td>
+                  <td>{renderYesNo(row.scratchBoard)}</td>
+                  <td>{renderYesNo(row.hammock)}</td>
+                  <td>{renderYesNo(row.handFiler)}</td>
+                </tr>
+              ))}
             </tbody>
           </table>
         </motion.div>
 
-        {/* Optional note */}
-        <motion.p
+        {/* Divider */}
+        <motion.hr
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ delay: 0.6, duration: 1 }}
+          className="my-16 border-t-4 border-pink-200 w-3/4 mx-auto rounded-full"
+        />
+
+<motion.div
+  initial={{ opacity: 0 }}
+  animate={{ opacity: 1 }}
+  transition={{ delay: 0.7, duration: 1 }}
+  className="text-center mb-8"
+>
+  <h2 className="text-3xl font-bold text-pink-600 mb-4">PetCure vs Home Safety & Decor Products</h2>
+  <p className="text-gray-700 max-w-3xl mx-auto text-lg">
+    Beyond grooming, PetCure also outperforms traditional home stair and floor products—like stair treads, runners, and anti-slip tape—
+    by protecting your home and filing your pet’s nails at the same time.
+  </p>
+</motion.div>
+        {/* Home Decor Comparison Table */}
+        <motion.div
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ delay: 0.8, duration: 1 }}
-          className="text-center text-gray-600 text-sm mt-6"
+          className="overflow-x-auto"
         >
-          ✅ = Fully supports natural, fear-free grooming | ❌ = Requires stress, restraint, or risk
-        </motion.p>
+          <table className="comparison-table">
+            <thead>
+              <tr>
+                <th>Feature</th>
+                <th className="highlight">PetCure</th>
+                <th>Carpet Stair Treads</th>
+                <th>Carpet Stair Runner</th>
+                <th>Anti-Slip Tape</th>
+              </tr>
+            </thead>
+            <tbody>
+              {homeDecorData.map((row, idx) => (
+                <tr key={idx}>
+                  <td>{row.feature}</td>
+                  <td className="highlight">{renderYesNo(row.petcure)}</td>
+                  <td>{renderYesNo(row.stairTreads)}</td>
+                  <td>{renderYesNo(row.stairRunner)}</td>
+                  <td>{renderYesNo(row.antiSlipTape)}</td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+         
 
-        {/* Call To Action */}
-        <CallToAction />
-
+        </motion.div>
       </div>
     </section>
   );

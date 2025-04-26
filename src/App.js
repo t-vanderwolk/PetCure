@@ -12,6 +12,7 @@ import PediWalk from './pages/PediWalk';
 import Products from './pages/Products';
 import Facts from './pages/Facts';
 import Compare from './pages/Compare';
+import CallToAction from './components/CallToAction';
 
 function AppContent() {
   const location = useLocation();
@@ -32,8 +33,8 @@ function AppContent() {
         <Route path="/pedisteps" element={<PediSteps />} />
         <Route path="/pediwalk" element={<PediWalk />} />
         <Route path="/facts" element={<Facts />} />
-
-      </Routes>
+</Routes>
+<CallToAction />
     </>
   );
 }
@@ -101,7 +102,9 @@ function App() {
   
     <Router>
 <AppContent />
+
     </Router>
+  
   );
 }
 
