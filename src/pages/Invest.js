@@ -5,8 +5,19 @@ import { motion } from 'framer-motion';
 
 function Invest() {
   return (
-    <section className="bg-pink-50 pt-24 pb-20 min-h-screen overflow-x-hidden">
+    <section className="bg-pink-50 pt-24 pb-20 min-h-screen overflow-x-hidden relative">
       <div className="max-w-6xl mx-auto px-6 text-center">
+        {/* Floating Animated Badge */}
+    {/* Floating Animated Badge (Centered under heading) */}
+<motion.div
+  initial={{ opacity: 0, y: -10 }}
+  animate={{ opacity: 1, y: 0 }}
+  transition={{ delay: 1.2, duration: 1 }}
+  className="mx-auto w-fit px-6 py-2 sm:px-4 sm:py-1 mt-8 mb-12 bg-pink-500 text-white text-sm sm:text-xs rounded-full shadow-lg backdrop-blur-md hover:scale-105 hover:shadow-pink-300 transition transform duration-300 ease-in-out"
+>
+  Now Accepting Early Investors
+</motion.div>
+
         {/* Heading */}
         <motion.h1 
           initial={{ opacity: 0, y: 40 }}
@@ -41,7 +52,7 @@ function Invest() {
           />
         </motion.div>
 
-        {/* Download Pitch Deck */}
+        {/* Download Pitch Deck Button */}
         <motion.a
           href="/documents/petcure-pitch-deck.pdf"
           download
@@ -100,7 +111,7 @@ function Invest() {
           />
         </motion.div>
 
-        {/* Final CTA */}
+        {/* Final CTA Button */}
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
@@ -120,4 +131,3 @@ function Invest() {
 }
 
 export default Invest;
-
