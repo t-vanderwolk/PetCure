@@ -1,9 +1,96 @@
+// src/pages/ComingSoon.js
+import React from 'react';
+import { motion } from 'framer-motion';
+
 function ComingSoon() {
-    return (
-      <div className="p-10 max-w-4xl mx-auto pt-24 text-center">
-        <h2 className="text-3xl font-bold text-pink-600 mb-4">Coming Soon</h2>
-        <p>Stay tuned for exciting new product drops, seasonal editions, and more!</p>
+  return (
+    <section className="bg-pink-50 pt-24 pb-20 min-h-screen overflow-x-hidden">
+      <div className="max-w-6xl mx-auto px-6 text-center">
+
+        {/* Main Heading */}
+        <motion.h1 
+          initial={{ opacity: 0, y: 40 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 1 }}
+          className="text-5xl font-bold text-pink-600 mb-6"
+        >
+          What's Coming Next
+        </motion.h1>
+
+        {/* Subheading */}
+        <motion.p 
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 0.2, duration: 1 }}
+          className="text-gray-700 text-lg max-w-3xl mx-auto mb-12"
+        >
+          At PetCure, we're always a step ahead. Here’s a peek at the exciting new releases we're preparing to polish your pet’s wellness journey even further.
+        </motion.p>
+
+        {/* Product Expansion Highlights */}
+        <motion.div 
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true }}
+          variants={{
+            hidden: { opacity: 0, y: 40 },
+            visible: { opacity: 1, y: 0, transition: { staggerChildren: 0.3 } }
+          }}
+          className="grid grid-cols-1 md:grid-cols-2 gap-12"
+        >
+
+          {/* Translucent, Colored, Patterned Emery Sheets */}
+          <motion.div 
+            variants={{ hidden: { opacity: 0, y: 30 }, visible: { opacity: 1, y: 0 } }}
+            className="bg-white rounded-2xl shadow-md p-8 border border-pink-200 flex flex-col items-center"
+          >
+            <h3 className="text-2xl font-bold text-pink-600 mb-4">Translucent, Colored & Patterned Emery Sheets</h3>
+            <p className="text-gray-700 text-base mb-4">
+              Soon, you’ll be able to customize your PediSteps and PediWalk with translucent, blush-toned, and elegant patterned emery paper options—perfect for blending seamlessly into any style of home décor.
+            </p>
+            <div className="w-full h-40 bg-pink-100 rounded-xl flex items-center justify-center italic text-pink-500 text-sm">
+              Visual Placeholder: Patterned and Colored Emery Styles
+            </div>
+          </motion.div>
+
+          {/* Hardwood Version */}
+          <motion.div 
+            variants={{ hidden: { opacity: 0, y: 30 }, visible: { opacity: 1, y: 0 } }}
+            className="bg-white rounded-2xl shadow-md p-8 border border-pink-200 flex flex-col items-center"
+          >
+            <h3 className="text-2xl font-bold text-pink-600 mb-4">Hardwood-Friendly Versions</h3>
+            <p className="text-gray-700 text-base mb-4">
+              Launching soon: PediSteps and PediWalk with a non-slip hardwood-compatible base, paired with a choice of classic black or translucent emery finishes. 
+              Stylish, safe, and perfect for smooth flooring.
+            </p>
+            <div className="w-full h-40 bg-pink-100 rounded-xl flex items-center justify-center italic text-pink-500 text-sm">
+              Visual Placeholder: Black & Translucent Hardwood Styles
+            </div>
+          </motion.div>
+
+        </motion.div>
+
+        {/* Final CTA */}
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 0.8, duration: 1 }}
+          className="mt-16"
+        >
+          <p className="text-gray-700 mb-6">
+            Want to be the first to know when these launch?
+          </p>
+          <a
+            href="/contact"
+            className="inline-block px-8 py-4 bg-pink-500 text-white rounded-full shadow-md hover:bg-pink-600 transition text-lg font-semibold"
+          >
+            Join Our VIP Waitlist
+          </a>
+        </motion.div>
+
       </div>
-    );
-  }
-  export default ComingSoon
+    </section>
+  );
+}
+
+export default ComingSoon;
