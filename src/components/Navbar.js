@@ -7,10 +7,14 @@ function Navbar() {
   const [menuOpen, setMenuOpen] = useState(false);
 
   return (
-    <nav className="fixed top-0 left-0 right-0 z-50 h-16 px-6 md:px-8 flex items-center justify-between bg-white/30 backdrop-blur-md shadow-lg border-b border-pink-100 text-pink-500">
+    <nav className="fixed top-0 left-0 right-0 z-50 h-20 px-6 md:px-8 flex items-center justify-between bg-white/30 backdrop-blur-md shadow-lg border-b border-pink-100 text-pink-500">
       {/* Logo */}
-      <Link to="/" className="text-2xl font-bold tracking-wide hover:text-pink-600 transition">
-        PetCure
+      <Link to="/" className="flex items-center gap-2">
+        <img
+          src="/images/petcure-logo-pink.png"
+          alt="PetCure logo"
+          className="h-20 w-auto object-contain"
+        />
       </Link>
 
       {/* Desktop Navigation */}
@@ -45,7 +49,7 @@ function Navbar() {
         <Link to="/contact" className="hover:text-pink-600 transition">Contact</Link>
       </div>
 
-      {/* Mobile Hamburger Menu */}
+      {/* Mobile Hamburger */}
       <div className="md:hidden">
         <button
           aria-label="Toggle Menu"
@@ -64,71 +68,17 @@ function Navbar() {
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -10 }}
             transition={{ duration: 0.3 }}
-            className="absolute top-16 left-0 right-0 bg-white/90 backdrop-blur-md border-t border-pink-100 flex flex-col text-pink-500 shadow-lg md:hidden z-40"
+            className="absolute top-20 left-0 right-0 bg-white/90 backdrop-blur-md border-t border-pink-100 flex flex-col text-pink-500 shadow-lg md:hidden z-40"
           >
-            <Link
-              to="/about"
-              className="px-6 py-4 text-lg hover:bg-pink-100 hover:text-pink-600 transition"
-              onClick={() => setMenuOpen(false)}
-            >
-              About
-            </Link>
-            <Link
-              to="/products"
-              className="px-6 py-4 text-lg hover:bg-pink-100 hover:text-pink-600 transition"
-              onClick={() => setMenuOpen(false)}
-            >
-              Products
-            </Link>
-            <Link
-              to="/pedisteps"
-              className="px-8 py-3 text-sm hover:bg-pink-100 hover:text-pink-600 transition"
-              onClick={() => setMenuOpen(false)}
-            >
-              • PediSteps
-            </Link>
-            <Link
-              to="/pediwalk"
-              className="px-8 py-3 text-sm hover:bg-pink-100 hover:text-pink-600 transition"
-              onClick={() => setMenuOpen(false)}
-            >
-              • PediWalk
-            </Link>
-            <Link
-              to="/compare"
-              className="px-6 py-4 text-lg hover:bg-pink-100 hover:text-pink-600 transition"
-              onClick={() => setMenuOpen(false)}
-            >
-              Compare
-            </Link>
-            <Link
-              to="/invest"
-              className="px-6 py-4 text-lg hover:bg-pink-100 hover:text-pink-600 transition"
-              onClick={() => setMenuOpen(false)}
-            >
-              Invest
-            </Link>
-            <Link
-              to="/coming-soon"
-              className="px-6 py-4 text-lg hover:bg-pink-100 hover:text-pink-600 transition"
-              onClick={() => setMenuOpen(false)}
-            >
-              Coming Soon
-            </Link>
-            <Link
-              to="/facts"
-              className="px-6 py-4 text-lg hover:bg-pink-100 hover:text-pink-600 transition"
-              onClick={() => setMenuOpen(false)}
-            >
-              FAQ
-            </Link>
-            <Link
-              to="/contact"
-              className="px-6 py-4 text-lg hover:bg-pink-100 hover:text-pink-600 transition"
-              onClick={() => setMenuOpen(false)}
-            >
-              Contact
-            </Link>
+            <Link to="/about" className="px-6 py-4 text-lg hover:bg-pink-100 hover:text-pink-600 transition" onClick={() => setMenuOpen(false)}>About</Link>
+            <Link to="/products" className="px-6 py-4 text-lg hover:bg-pink-100 hover:text-pink-600 transition" onClick={() => setMenuOpen(false)}>Products</Link>
+            <Link to="/pedisteps" className="px-8 py-3 text-sm hover:bg-pink-100 hover:text-pink-600 transition" onClick={() => setMenuOpen(false)}>• PediSteps</Link>
+            <Link to="/pediwalk" className="px-8 py-3 text-sm hover:bg-pink-100 hover:text-pink-600 transition" onClick={() => setMenuOpen(false)}>• PediWalk</Link>
+            <Link to="/compare" className="px-6 py-4 text-lg hover:bg-pink-100 hover:text-pink-600 transition" onClick={() => setMenuOpen(false)}>Compare</Link>
+            <Link to="/invest" className="px-6 py-4 text-lg hover:bg-pink-100 hover:text-pink-600 transition" onClick={() => setMenuOpen(false)}>Invest</Link>
+            <Link to="/coming-soon" className="px-6 py-4 text-lg hover:bg-pink-100 hover:text-pink-600 transition" onClick={() => setMenuOpen(false)}>Coming Soon</Link>
+            <Link to="/facts" className="px-6 py-4 text-lg hover:bg-pink-100 hover:text-pink-600 transition" onClick={() => setMenuOpen(false)}>FAQ</Link>
+            <Link to="/contact" className="px-6 py-4 text-lg hover:bg-pink-100 hover:text-pink-600 transition" onClick={() => setMenuOpen(false)}>Contact</Link>
           </motion.div>
         )}
       </AnimatePresence>
