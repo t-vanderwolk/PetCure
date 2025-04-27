@@ -1,3 +1,4 @@
+// src/components/Navbar.js
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
@@ -44,7 +45,7 @@ function Navbar() {
         <Link to="/contact" className="hover:text-pink-600 transition">Contact</Link>
       </div>
 
-      {/* Mobile Hamburger Icon */}
+      {/* Mobile Hamburger Menu */}
       <div className="md:hidden">
         <button
           aria-label="Toggle Menu"
@@ -55,7 +56,7 @@ function Navbar() {
         </button>
       </div>
 
-      {/* Mobile Dropdown Menu */}
+      {/* Mobile Dropdown */}
       <AnimatePresence>
         {menuOpen && (
           <motion.div
@@ -81,17 +82,17 @@ function Navbar() {
             </Link>
             <Link
               to="/pedisteps"
-              className="px-6 py-4 text-sm hover:bg-pink-100 hover:text-pink-600 transition"
+              className="px-8 py-3 text-sm hover:bg-pink-100 hover:text-pink-600 transition"
               onClick={() => setMenuOpen(false)}
             >
-              - PediSteps
+              • PediSteps
             </Link>
             <Link
               to="/pediwalk"
-              className="px-6 py-4 text-sm hover:bg-pink-100 hover:text-pink-600 transition"
+              className="px-8 py-3 text-sm hover:bg-pink-100 hover:text-pink-600 transition"
               onClick={() => setMenuOpen(false)}
             >
-              - PediWalk
+              • PediWalk
             </Link>
             <Link
               to="/compare"
@@ -99,6 +100,13 @@ function Navbar() {
               onClick={() => setMenuOpen(false)}
             >
               Compare
+            </Link>
+            <Link
+              to="/invest"
+              className="px-6 py-4 text-lg hover:bg-pink-100 hover:text-pink-600 transition"
+              onClick={() => setMenuOpen(false)}
+            >
+              Invest
             </Link>
             <Link
               to="/coming-soon"
