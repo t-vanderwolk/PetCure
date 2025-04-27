@@ -22,10 +22,24 @@ function Invest() {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.2, duration: 1 }}
-          className="text-gray-700 text-lg max-w-3xl mx-auto mb-10"
+          className="text-gray-700 text-lg max-w-3xl mx-auto mb-12"
         >
           PetCure is revolutionizing pet wellness with the first passive, luxury nail care solution. Be part of our journey to scale innovation, elevate pet care, and lead a booming industry.
         </motion.p>
+
+        {/* Hero Image */}
+        <motion.div
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ delay: 0.4, duration: 1 }}
+          className="mb-16"
+        >
+          <img 
+            src="/images/invest-hero.png" 
+            alt="Investment Banner" 
+            className="rounded-2xl shadow-md mx-auto max-h-[400px] object-cover"
+          />
+        </motion.div>
 
         {/* Download Pitch Deck */}
         <motion.a
@@ -33,44 +47,65 @@ function Invest() {
           download
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.4, duration: 1 }}
-          className="inline-block px-8 py-4 bg-pink-500 text-white rounded-full shadow-md hover:bg-pink-600 transition text-lg font-semibold mb-8"
+          transition={{ delay: 0.6, duration: 1 }}
+          className="inline-block px-8 py-4 mb-16 bg-pink-500 text-white rounded-full shadow-md hover:bg-pink-600 transition text-lg font-semibold"
         >
-          Download Pitch Deck
+          Download Full Pitch Deck
         </motion.a>
+
+        {/* One Page Investment Summary */}
+        <motion.div
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ delay: 0.8, duration: 1 }}
+          className="mb-20"
+        >
+          <img 
+            src="/images/invest-sum.png" 
+            alt="One Page Investment Summary" 
+            className="rounded-2xl shadow-md mx-auto max-h-[500px] object-cover"
+          />
+        </motion.div>
 
         {/* Investor Highlights */}
         <motion.div 
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.6, duration: 1 }}
-          className="grid grid-cols-1 md:grid-cols-3 gap-8 mt-12 mb-20"
+          transition={{ delay: 1.0, duration: 1 }}
+          className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-20"
         >
-          <div className="bg-white rounded-2xl shadow-md p-6 border border-pink-200">
-            <h3 className="text-2xl font-bold text-pink-600 mb-2">Massive Market</h3>
-            <p className="text-gray-700 text-sm">
-              The global pet care market is projected to surpass $250 billion by 2030.
-            </p>
-          </div>
-          <div className="bg-white rounded-2xl shadow-md p-6 border border-pink-200">
-            <h3 className="text-2xl font-bold text-pink-600 mb-2">First Mover Advantage</h3>
-            <p className="text-gray-700 text-sm">
-              PetCure is the only passive nail grooming solution engineered for daily use.
-            </p>
-          </div>
-          <div className="bg-white rounded-2xl shadow-md p-6 border border-pink-200">
-            <h3 className="text-2xl font-bold text-pink-600 mb-2">Premium Branding</h3>
-            <p className="text-gray-700 text-sm">
-              Luxury spa-style design meets functional wellness—positioned for pet owners who demand more.
-            </p>
-          </div>
+          {[
+            { title: 'Massive Market', text: 'The global pet care market is projected to surpass $250 billion by 2030.' },
+            { title: 'First Mover Advantage', text: 'PetCure is the only passive nail grooming solution engineered for daily use.' },
+            { title: 'Premium Branding', text: 'Luxury spa-style design meets functional wellness—positioned for pet owners who demand more.' }
+          ].map((item, index) => (
+            <div key={index} className="bg-white rounded-2xl p-6 border border-pink-200 shadow-md flex flex-col items-center text-center">
+              <h3 className="text-2xl font-bold text-pink-600 mb-2">{item.title}</h3>
+              <p className="text-gray-700 text-sm">{item.text}</p>
+            </div>
+          ))}
         </motion.div>
 
-        {/* Contact CTA */}
+        {/* Financial Projections */}
+        <motion.div
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ delay: 1.2, duration: 1 }}
+          className="mb-20"
+        >
+          <img 
+            src="/images/invest-charts.png" 
+            alt="Financial Projections and Cost Breakdown Charts" 
+            className="rounded-2xl shadow-md mx-auto max-h-[500px] object-cover"
+          />
+        </motion.div>
+
+        {/* Final CTA */}
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.8, duration: 1 }}
+          transition={{ delay: 1.4, duration: 1 }}
+          className="text-center"
         >
           <Link
             to="/contact"
@@ -85,3 +120,4 @@ function Invest() {
 }
 
 export default Invest;
+

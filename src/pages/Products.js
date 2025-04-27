@@ -71,6 +71,23 @@ function Products() {
               </Link>
             </div>
           </div>
+
+          {/* Placeholder for future image */}
+          <div className="flex flex-col items-center justify-center p-8 border-2 border-dashed border-pink-300 rounded-2xl bg-pink-100/50 text-center">
+            <h4 className="text-pink-500 font-bold text-xl mb-2">Future Product Image</h4>
+            <p className="text-gray-600 text-sm max-w-xs">
+              Placeholder for a new PediSteps variant or lifestyle photo.
+            </p>
+          </div>
+
+          {/* Another Placeholder */}
+          <div className="flex flex-col items-center justify-center p-8 border-2 border-dashed border-pink-300 rounded-2xl bg-pink-100/50 text-center">
+            <h4 className="text-pink-500 font-bold text-xl mb-2">New Launch Visual</h4>
+            <p className="text-gray-600 text-sm max-w-xs">
+              Placeholder for PediWalk premium pattern editions or hardwood version.
+            </p>
+          </div>
+
         </motion.div>
       </div>
     </motion.section>
