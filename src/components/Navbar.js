@@ -1,91 +1,82 @@
 // src/components/Navbar.js
 import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
-import { motion, AnimatePresence } from 'framer-motion';
+import { Link, useNavigate } from 'react-router-dom'; // <-- add useNavigate
 
 function Navbar() {
-  const [menuOpen, setMenuOpen] = useState(false);
+  const [isProductsOpen, setIsProductsOpen] = useState(false);
+  const navigate = useNavigate(); // <-- initialize useNavigate hook
+
+  // Handle Products Click
+  const handleProductsClick = () => {
+    navigate('/products');
+  };
 
   return (
-    <nav className="fixed top-0 left-0 right-0 z-50 h-20 px-6 md:px-8 flex items-center justify-between bg-white/30 backdrop-blur-md shadow-lg border-b border-pink-100 text-pink-500">
-      {/* Logo */}
-      <Link to="/" className="flex items-center gap-2">
-        <img
-          src="/images/petcure-logo-pink.png"
-          alt="PetCure logo"
-          className="h-20 w-auto object-contain"
-        />
-      </Link>
+    <nav className="bg-white shadow-md fixed top-0 left-0 w-full z-50">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="flex justify-between h-16">
 
-      {/* Desktop Navigation */}
-      <div className="hidden md:flex gap-8 text-lg items-center relative">
-        <Link to="/about" className="hover:text-pink-600 transition">About</Link>
-
-        {/* Products Dropdown */}
-        <div className="relative group">
-          <Link to="/products" className="hover:text-pink-600 transition">
-            Products ▾
-          </Link>
-          <div className="absolute right-0 mt-2 w-40 bg-white/80 backdrop-blur-md rounded shadow-lg opacity-0 group-hover:opacity-100 pointer-events-none group-hover:pointer-events-auto transition-opacity duration-300 z-50">
-            <Link
-              to="/pedisteps"
-              className="block px-4 py-2 text-sm hover:bg-pink-100 hover:text-pink-600 transition"
-            >
-              PediSteps
-            </Link>
-            <Link
-              to="/pediwalk"
-              className="block px-4 py-2 text-sm hover:bg-pink-100 hover:text-pink-600 transition"
-            >
-              PediWalk
+          {/* Left side - Logo */}
+          <div className="flex items-center">
+            <Link to="/" className="text-pink-600 font-bold text-2xl">
+              PetCure
             </Link>
           </div>
+
+          {/* Right side - Links */}
+          <div className="flex items-center space-x-6">
+
+            <Link to="/" className="text-gray-700 hover:text-pink-500 font-semibold">
+              Home
+            </Link>
+
+            <Link to="/about" className="text-gray-700 hover:text-pink-500 font-semibold">
+              About
+            </Link>
+
+            {/* Products Dropdown */}
+            <div className="relative">
+              <button 
+                onClick={handleProductsClick}
+                onMouseEnter={() => setIsProductsOpen(true)}
+                onMouseLeave={() => setIsProductsOpen(false)}
+                className="text-gray-700 hover:text-pink-500 font-semibold focus:outline-none"
+              >
+                Products ▾
+              </button>
+
+              {isProductsOpen && (
+                <div 
+                  onMouseEnter={() => setIsProductsOpen(true)}
+                  onMouseLeave={() => setIsProductsOpen(false)}
+                  className="absolute mt-2 w-48 rounded-md shadow-lg bg-white border border-pink-200"
+                >
+                  <div className="py-2 flex flex-col">
+                    <Link to="/products/pedisteps" className="px-4 py-2 text-gray-700 hover:bg-pink-50 hover:text-pink-600">
+                      PediSteps
+                    </Link>
+                    <Link to="/products/pediwalk" className="px-4 py-2 text-gray-700 hover:bg-pink-50 hover:text-pink-600">
+                      PediWalk
+                    </Link>
+                    <Link to="/products/coming-soon" className="px-4 py-2 text-gray-700 hover:bg-pink-50 hover:text-pink-600">
+                      Coming Soon ✨
+                    </Link>
+                  </div>
+                </div>
+              )}
+            </div>
+
+            <Link to="/blog" className="text-gray-700 hover:text-pink-500 font-semibold">
+              Blog
+            </Link>
+
+            <Link to="/contact" className="text-gray-700 hover:text-pink-500 font-semibold">
+              Contact
+            </Link>
+
+          </div>
         </div>
-
-        <Link to="/compare" className="hover:text-pink-600 transition">Compare</Link>
-        <Link to="/invest" className="hover:text-pink-600 transition">Invest</Link>
-        <Link to="/coming-soon" className="hover:text-pink-600 transition">Coming Soon</Link>
-        <Link to="/facts" className="hover:text-pink-600 transition">FAQ</Link>
-        <Link to="/contact" className="hover:text-pink-600 transition">Contact</Link>
-        <Link to="/blog" className="hover:text-pink-600 transition">Blog</Link>
-
       </div>
-
-      {/* Mobile Hamburger */}
-      <div className="md:hidden">
-        <button
-          aria-label="Toggle Menu"
-          onClick={() => setMenuOpen(!menuOpen)}
-          className="text-3xl focus:outline-none"
-        >
-          {menuOpen ? '✕' : '☰'}
-        </button>
-      </div>
-
-      {/* Mobile Dropdown */}
-      <AnimatePresence>
-        {menuOpen && (
-          <motion.div
-            initial={{ opacity: 0, y: -10 }}
-            animate={{ opacity: 1, y: 0 }}
-            exit={{ opacity: 0, y: -10 }}
-            transition={{ duration: 0.3 }}
-            className="absolute top-20 left-0 right-0 bg-white/90 backdrop-blur-md border-t border-pink-100 flex flex-col text-pink-500 shadow-lg md:hidden z-40"
-          >
-            <Link to="/about" className="px-6 py-4 text-lg hover:bg-pink-100 hover:text-pink-600 transition" onClick={() => setMenuOpen(false)}>About</Link>
-            <Link to="/products" className="px-6 py-4 text-lg hover:bg-pink-100 hover:text-pink-600 transition" onClick={() => setMenuOpen(false)}>Products</Link>
-            <Link to="/pedisteps" className="px-8 py-3 text-sm hover:bg-pink-100 hover:text-pink-600 transition" onClick={() => setMenuOpen(false)}>• PediSteps</Link>
-            <Link to="/pediwalk" className="px-8 py-3 text-sm hover:bg-pink-100 hover:text-pink-600 transition" onClick={() => setMenuOpen(false)}>• PediWalk</Link>
-            <Link to="/compare" className="px-6 py-4 text-lg hover:bg-pink-100 hover:text-pink-600 transition" onClick={() => setMenuOpen(false)}>Compare</Link>
-            <Link to="/invest" className="px-6 py-4 text-lg hover:bg-pink-100 hover:text-pink-600 transition" onClick={() => setMenuOpen(false)}>Invest</Link>
-            <Link to="/coming-soon" className="px-6 py-4 text-lg hover:bg-pink-100 hover:text-pink-600 transition" onClick={() => setMenuOpen(false)}>Coming Soon</Link>
-            <Link to="/facts" className="px-6 py-4 text-lg hover:bg-pink-100 hover:text-pink-600 transition" onClick={() => setMenuOpen(false)}>FAQ</Link>
-            <Link to="/contact" className="px-6 py-4 text-lg hover:bg-pink-100 hover:text-pink-600 transition" onClick={() => setMenuOpen(false)}>Contact</Link>
-            <Link to="/blog" className="px-6 py-4 text-lg hover:bg-pink-100 hover:text-pink-600 transition" onClick={() => setMenuOpen(false)}>Contact</Link>
-
-          </motion.div>
-        )}
-      </AnimatePresence>
     </nav>
   );
 }
