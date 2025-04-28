@@ -29,7 +29,7 @@ function Products() {
               Textured stair pads that naturally file your dog's nails through everyday movement.
             </p>
             <Link 
-              to="/products/pedisteps"
+              to="/pedisteps"
               className="bg-pink-500 group-hover:shadow-lg group-hover:shadow-pink-200 hover:bg-pink-600 text-white font-bold py-3 px-6 rounded-full transition duration-300 ease-in-out"
             >
               Buy Now
@@ -49,7 +49,7 @@ function Products() {
               Hallway pads designed for homes without stairs — effortless, passive nail grooming.
             </p>
             <Link 
-              to="/products/pediwalk"
+              to="/pediwalk"
               className="bg-pink-500 group-hover:shadow-lg group-hover:shadow-pink-200 hover:bg-pink-600 text-white font-bold py-3 px-6 rounded-full transition duration-300 ease-in-out"
             >
               Buy Now
