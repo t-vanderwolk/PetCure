@@ -3,7 +3,33 @@ import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 
 function Blog() {
-  const [posts, setPosts] = useState([]);
+  const [posts, setPosts] = useState([
+    {
+      id: 1,
+      title: 'Pawfect Decor: Styling Your Home for Pets and People',
+      content: `At PetCure, we believe your home should feel as chic as it is cozy — even for your pets! 
+Think plush, washable rugs, sleek dog beds that blend with your furniture, and neutral-toned emery stair pads for effortless style. 
+A few well-placed pink accents (hello, PediSteps!) can make your home feel like a designer haven for both humans and four-legged family members.`,
+      createdAt: 'April 28, 2025, 10:00 AM',
+    },
+    {
+      id: 2,
+      title: 'The Secret to Stress-Free Dog Nail Grooming',
+      content: `Tired of wrestling with clippers or loud, scary grinders? 
+Our PediSteps and PediWalk mats offer a passive, natural solution that files your dog’s nails while they simply walk around! 
+No stress. No sedation. Just easy daily care that protects your floors, your sanity, and your pup's paws.`,
+      createdAt: 'April 28, 2025, 11:00 AM',
+    },
+    {
+      id: 3,
+      title: 'Dog Park Drama: Celebrity Dogs Spill the Tea!',
+      content: `Word on the street is that Lady Gaga’s Frenchies are starting their own fashion line — and Suki Waterhouse’s dachshund is reportedly "not impressed." 
+Meanwhile, Tika the Iggy has been throwing some serious side-eye at any pup who shows up at the park in last season’s harness. 
+Stay tuned for more canine couture drama — it’s getting juicy! 🐾👑`,
+      createdAt: 'April 28, 2025, 12:00 PM',
+    },
+  ]);
+
   const [title, setTitle] = useState('');
   const [content, setContent] = useState('');
   const [editingPostId, setEditingPostId] = useState(null);
