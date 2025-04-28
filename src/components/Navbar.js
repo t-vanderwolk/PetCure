@@ -47,6 +47,8 @@ function Navbar() {
         <Link to="/coming-soon" className="hover:text-pink-600 transition">Coming Soon</Link>
         <Link to="/facts" className="hover:text-pink-600 transition">FAQ</Link>
         <Link to="/contact" className="hover:text-pink-600 transition">Contact</Link>
+        <Link to="/blog" className="hover:text-pink-600 transition">Blog</Link>
+
       </div>
 
       {/* Mobile Hamburger */}
@@ -79,6 +81,8 @@ function Navbar() {
             <Link to="/coming-soon" className="px-6 py-4 text-lg hover:bg-pink-100 hover:text-pink-600 transition" onClick={() => setMenuOpen(false)}>Coming Soon</Link>
             <Link to="/facts" className="px-6 py-4 text-lg hover:bg-pink-100 hover:text-pink-600 transition" onClick={() => setMenuOpen(false)}>FAQ</Link>
             <Link to="/contact" className="px-6 py-4 text-lg hover:bg-pink-100 hover:text-pink-600 transition" onClick={() => setMenuOpen(false)}>Contact</Link>
+            <Link to="/blog" className="px-6 py-4 text-lg hover:bg-pink-100 hover:text-pink-600 transition" onClick={() => setMenuOpen(false)}>Contact</Link>
+
           </motion.div>
         )}
       </AnimatePresence>
