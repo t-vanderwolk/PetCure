@@ -42,29 +42,41 @@ function ComingSoon() {
           {/* Translucent, Colored, Patterned Emery Sheets */}
           <motion.div 
             variants={{ hidden: { opacity: 0, y: 30 }, visible: { opacity: 1, y: 0 } }}
-            className="bg-white rounded-2xl shadow-md p-8 border border-pink-200 flex flex-col items-center"
+            className="bg-white rounded-2xl shadow-md p-8 border border-pink-200 flex flex-col items-stretch justify-between"
           >
-            <h3 className="text-2xl font-bold text-pink-600 mb-4">Translucent, Colored & Patterned Emery Sheets</h3>
-            <p className="text-gray-700 text-base mb-4">
-              Soon, you’ll be able to customize your PediSteps and PediWalk with translucent, blush-toned, and elegant patterned emery paper options—perfect for blending seamlessly into any style of home décor.
-            </p>
-            <div className="w-full h-40 bg-pink-100 rounded-xl flex items-center justify-center italic text-pink-500 text-sm">
-              Visual Placeholder: Patterned and Colored Emery Styles
+            <div className="flex flex-col flex-grow">
+              <h3 className="text-2xl font-bold text-pink-600 mb-4">Translucent, Colored & Patterned Emery Sheets</h3>
+              <p className="text-gray-700 text-base mb-8">
+                Soon, you’ll be able to customize your PediSteps and PediWalk with translucent, blush-toned, and elegant patterned emery paper options—perfect for blending seamlessly into any style of home décor.
+              </p>
+            </div>
+            <div className="w-full h-64 flex items-center justify-center overflow-hidden mt-auto">
+              <img 
+                src="/images/emery-kits.png" 
+                alt="Emery Replacement Kits" 
+                className="h-full object-contain"
+              />
             </div>
           </motion.div>
 
           {/* Hardwood Version */}
           <motion.div 
             variants={{ hidden: { opacity: 0, y: 30 }, visible: { opacity: 1, y: 0 } }}
-            className="bg-white rounded-2xl shadow-md p-8 border border-pink-200 flex flex-col items-center"
+            className="bg-white rounded-2xl shadow-md p-8 border border-pink-200 flex flex-col items-stretch justify-between"
           >
-            <h3 className="text-2xl font-bold text-pink-600 mb-4">Hardwood-Friendly Versions</h3>
-            <p className="text-gray-700 text-base mb-4">
-              Launching soon: PediSteps and PediWalk with a non-slip hardwood-compatible base, paired with a choice of classic black or translucent emery finishes. 
-              Stylish, safe, and perfect for smooth flooring.
-            </p>
-            <div className="w-full h-40 bg-pink-100 rounded-xl flex items-center justify-center italic text-pink-500 text-sm">
-              Visual Placeholder: Black & Translucent Hardwood Styles
+            <div className="flex flex-col flex-grow">
+              <h3 className="text-2xl font-bold text-pink-600 mb-4">Hardwood-Friendly Versions</h3>
+              <p className="text-gray-700 text-base mb-8">
+                Launching soon: PediSteps and PediWalk with a non-slip hardwood-compatible base, paired with a choice of classic black or translucent emery finishes. 
+                Stylish, safe, and perfect for smooth flooring.
+              </p>
+            </div>
+            <div className="w-full h-64 flex items-center justify-center overflow-hidden mt-auto">
+              <img 
+                src="/images/hardwood-version.jpeg" 
+                alt="Hardwood Version" 
+                className="h-full object-contain"
+              />
             </div>
           </motion.div>
 
