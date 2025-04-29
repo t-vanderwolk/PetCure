@@ -7,7 +7,6 @@ function ComingSoon() {
     <section className="bg-pink-50 pt-24 pb-20 min-h-screen overflow-x-hidden">
       <div className="max-w-6xl mx-auto px-6 text-center">
 
-        {/* Main Heading */}
         <motion.h1 
           initial={{ opacity: 0, y: 40 }}
           animate={{ opacity: 1, y: 0 }}

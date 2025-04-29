@@ -1,133 +1,138 @@
-// src/pages/About.js
 import React from 'react';
 import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
 import Compare from './Compare';
 import Invest from './Invest';
 
+const fadeInVariant = {
+  hidden: { opacity: 0, y: 40 },
+  visible: { opacity: 1, y: 0, transition: { duration: 1 } },
+};
+
 function About() {
   return (
-    <section className="bg-pink-50 pt-24 pb-20 min-h-screen">
-      <div className="max-w-6xl mx-auto px-6">
+    <section className="bg-pink-50 pt-24 pb-20 min-h-screen overflow-x-hidden">
+      <div className="max-w-7xl mx-auto px-6 space-y-20">
+
         {/* Hero Section */}
         <motion.div
-          initial={{ opacity: 0, y: 60 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.2, duration: 1 }}
-          className="text-center mb-20"
+          variants={fadeInVariant}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true }}
+          className="text-center"
         >
-          <h1 className="text-5xl font-bold text-pink-600 mb-6">Welcome to PetCure</h1>
+          <h1 className="text-5xl font-bold text-pink-600 mb-4">Welcome to PetCure</h1>
           <p className="text-gray-600 max-w-2xl mx-auto text-lg">
-            Transforming pet grooming from a stressful chore into a seamless, stress-free experience.
+            Transforming pet grooming from a stressful chore into a seamless, luxurious experience.
           </p>
         </motion.div>
 
         {/* Problem/Solution */}
         <motion.div
-          initial={{ opacity: 0, y: 40 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.4, duration: 1 }}
-          className="bg-white rounded-2xl shadow-md border border-pink-200 p-8 mb-16 text-center"
+          variants={fadeInVariant}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true }}
+          className="bg-white rounded-2xl shadow-md border border-pink-200 p-8 text-center"
         >
-          <h2 className="text-3xl font-bold text-pink-600 mb-4">Why PetCure?</h2>
-          <p className="text-gray-700 mb-6">
-            Because today’s pet parents expect better—and PetCure delivers. We eliminate the fear, stress, and hassle of nail care with a passive, science-backed solution pets and owners love.
-            No sedation. No traumatic vet trips. No expensive grooming bills. Just effortless, natural nail health—engineered to fit beautifully into any modern home.
+          <h2 className="text-4xl font-bold text-pink-600 mb-6">Why PetCure?</h2>
+          <p className="text-gray-700 text-lg max-w-3xl mx-auto mb-6">
+            Today’s pet parents expect better—and PetCure delivers. We eliminate the fear, stress, and hassle of nail care with a passive, science-backed solution pets and owners love.
           </p>
-          <p className="text-pink-500 font-semibold">Step. File. Repeat.</p>
+          <p className="text-pink-500 font-semibold text-xl">Step. File. Repeat.</p>
         </motion.div>
 
         {/* Product Highlights */}
         <motion.div
-          initial={{ opacity: 0, y: 40 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.6, duration: 1 }}
-          className="grid grid-cols-1 md:grid-cols-2 gap-12 mb-20"
+          variants={fadeInVariant}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true }}
+          className="grid grid-cols-1 md:grid-cols-2 gap-12"
         >
           {/* PediSteps */}
-          <div className="bg-white rounded-2xl shadow-lg border border-pink-200 p-6 flex flex-col justify-between items-center text-center">
-            <img src="/images/pedi-steps1.jpg" alt="PediSteps" className="w-full rounded-xl mb-4" />
+          <div className="bg-white rounded-2xl shadow-lg border border-pink-200 p-8 flex flex-col items-center text-center">
+            <img src="/images/pedi-steps1.jpg" alt="PediSteps" className="w-full rounded-xl mb-6" />
             <h3 className="text-2xl font-bold text-pink-600 mb-4">PediSteps</h3>
             <p className="text-gray-700 mb-6">
-              Textured stair pads for multi-level homes. Files your pet’s nails naturally as they walk.
+              Textured stair pads that naturally file your pet’s nails—blending seamlessly into multi-level homes.
             </p>
             <Link
               to="/pedisteps"
-              className="inline-block mt-4 px-6 py-3 text-white bg-pink-500 rounded-full shadow-md hover:bg-pink-600 transition font-semibold"
+              className="px-6 py-3 text-white bg-pink-500 rounded-full shadow-md hover:bg-pink-600 transition font-semibold"
             >
-              Buy Now
+              Shop PediSteps
             </Link>
           </div>
 
           {/* PediWalk */}
-          <div className="bg-white rounded-2xl shadow-lg border border-pink-200 p-6 flex flex-col justify-between items-center text-center">
-            <img src="/images/pedi-walk1.jpeg" alt="PediWalk" className="w-full rounded-xl mb-4" />
+          <div className="bg-white rounded-2xl shadow-lg border border-pink-200 p-8 flex flex-col items-center text-center">
+            <img src="/images/pedi-walk1.jpeg" alt="PediWalk" className="w-full rounded-xl mb-6" />
             <h3 className="text-2xl font-bold text-pink-600 mb-4">PediWalk</h3>
             <p className="text-gray-700 mb-6">
-              The hallway-friendly solution for single-level living. Same passive nail filing, no stairs needed.
+              Hallway-friendly nail filing, perfect for single-level homes—no clippers, no stress.
             </p>
             <Link
               to="/pediwalk"
-              className="inline-block mt-4 px-6 py-3 text-white bg-pink-500 rounded-full shadow-md hover:bg-pink-600 transition font-semibold"
+              className="px-6 py-3 text-white bg-pink-500 rounded-full shadow-md hover:bg-pink-600 transition font-semibold"
             >
-              Buy Now
+              Shop PediWalk
             </Link>
           </div>
         </motion.div>
 
         {/* Product Architecture */}
         <motion.div
-          initial={{ opacity: 0, y: 40 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.8, duration: 1 }}
-          className="bg-white rounded-2xl shadow-md border border-pink-200 p-8 mb-20 flex flex-col items-center"
+          variants={fadeInVariant}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true }}
+          className="bg-white rounded-2xl shadow-md border border-pink-200 p-10 text-center"
         >
-          <h3 className="text-2xl font-bold text-pink-600 mb-4">Product Architecture</h3>
-          <p className="text-gray-700 text-center max-w-2xl mb-6">
-            Each PediStep and PediWalk pad features a dual-layer design: a premium textured emery surface bonded to a non-slip, studded vinyl base. Designed for safety, durability, and style.
+          <h3 className="text-3xl font-bold text-pink-600 mb-4">Product Architecture</h3>
+          <p className="text-gray-700 max-w-2xl mx-auto mb-6">
+            Each pad features a premium textured emery surface bonded to a non-slip, studded vinyl base—crafted for safety, durability, and style.
           </p>
           <img
             src="/images/closeup.jpeg"
-            alt="PediSteps and PediWalk design layers"
-            className="w-full max-w-2xl rounded-lg border border-pink-200 shadow-md"
+            alt="Closeup of PediSteps and PediWalk"
+            className="w-full max-w-3xl mx-auto rounded-lg shadow-md border border-pink-200"
           />
         </motion.div>
 
         {/* How It Works */}
         <motion.div
-          initial={{ opacity: 0, y: 40 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 1.0, duration: 1 }}
-          className="bg-white rounded-2xl shadow-md border border-pink-200 p-8 mb-20 text-center"
+          variants={fadeInVariant}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true }}
+          className="bg-white rounded-2xl shadow-md border border-pink-200 p-10 text-center"
         >
-          <h3 className="text-2xl font-bold text-pink-600 mb-4">How It Works</h3>
-          <p className="text-gray-700 text-lg max-w-3xl mx-auto mb-6">
-            Simply place PediSteps on your stairs or PediWalk in your hallway. As your pet walks, the textured emery surface gently files their nails—no clipping, no noise, no stress.
+          <h3 className="text-3xl font-bold text-pink-600 mb-6">How It Works</h3>
+          <p className="text-gray-700 text-lg max-w-3xl mx-auto mb-8">
+            Simply place PediSteps on stairs or PediWalk in the hallway. Your pet walks. Nature does the rest.
           </p>
-
-          {/* Hero Visual */}
           <img
             src="/images/pedi-steps-hero.jpeg"
             alt="Dog using PediSteps"
-            className="w-full max-w-2xl mx-auto rounded-xl border border-pink-200 shadow-lg"
+            className="w-full max-w-3xl mx-auto rounded-xl shadow-lg border border-pink-200"
           />
-          <p className="text-gray-600 italic mt-4 text-sm">
-            Real-life demo starring Bea: stair queen, nail model, house security.
-          </p>
+          <p className="text-gray-600 italic text-sm mt-4">Featuring Bea — our stair queen and paw model.</p>
 
-          {/* 3 Step Process */}
-          <div className="mt-10 grid grid-cols-1 md:grid-cols-3 gap-8">
+          {/* 3-Step Icons */}
+          <div className="mt-12 grid grid-cols-1 md:grid-cols-3 gap-8">
             {[
-              { number: 1, title: "Step", desc: "Your pet walks up stairs or across the hallway." },
-              { number: 2, title: "File", desc: "The emery surface gently shapes their nails with every step." },
-              { number: 3, title: "Repeat", desc: "Effortless maintenance from everyday movement!" }
-            ].map((step) => (
-              <div key={step.number} className="flex flex-col items-center">
+              { number: 1, title: "Step", desc: "Natural walking motion." },
+              { number: 2, title: "File", desc: "The emery surface gently shapes their nails." },
+              { number: 3, title: "Repeat", desc: "Effortless daily grooming." }
+            ].map((item) => (
+              <div key={item.number} className="flex flex-col items-center">
                 <div className="w-16 h-16 flex items-center justify-center bg-pink-100 rounded-full text-pink-600 font-bold text-xl mb-4">
-                  {step.number}
+                  {item.number}
                 </div>
-                <h4 className="font-semibold text-pink-600 mb-2">{step.title}</h4>
-                <p className="text-gray-700 text-sm">{step.desc}</p>
+                <h4 className="font-semibold text-pink-600 mb-2">{item.title}</h4>
+                <p className="text-gray-700 text-sm">{item.desc}</p>
               </div>
             ))}
           </div>
@@ -135,61 +140,85 @@ function About() {
 
         {/* Nail Health */}
         <motion.div
-          initial={{ opacity: 0, y: 40 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 1.2, duration: 1 }}
-          className="bg-pink-50/60 backdrop-blur-md rounded-2xl shadow-md border border-pink-200 p-8 mb-20"
+          variants={fadeInVariant}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true }}
+          className="bg-pink-50/60 backdrop-blur-md rounded-2xl shadow-md border border-pink-200 p-10 text-center"
         >
-          <h3 className="text-2xl font-bold text-pink-600 mb-4 text-center">Why Nail Health Matters</h3>
-          <p className="text-gray-700 max-w-3xl mx-auto text-center mb-6">
-            Overgrown nails distort paw posture, causing arthritis, joint pain, and instability. Passive filing keeps paws strong and pain-free.
+          <h3 className="text-3xl font-bold text-pink-600 mb-6">Why Nail Health Matters</h3>
+          <p className="text-gray-700 max-w-3xl mx-auto mb-8">
+            Healthy nails = healthy paws. Overgrown nails alter posture, cause pain, and limit mobility. Passive filing is natural prevention.
           </p>
           <img
             src="/images/nail-posture-infographic.jpeg"
             alt="Nail health infographic"
-            className="w-full max-w-3xl mx-auto rounded-lg border border-pink-200 shadow-md"
+            className="w-full max-w-3xl mx-auto rounded-lg shadow-md border border-pink-200"
           />
         </motion.div>
 
-        {/* Final Mission */}
+        {/* Mission Section */}
         <motion.div
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ delay: 1.4, duration: 1 }}
+          variants={fadeInVariant}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true }}
           className="text-center"
         >
-          <h3 className="text-2xl font-bold text-pink-600 mb-4">Our Mission</h3>
+          <h3 className="text-3xl font-bold text-pink-600 mb-4">Our Mission</h3>
           <p className="text-gray-700 text-lg max-w-3xl mx-auto mb-8">
-            PetCure creates safer, smarter, stress-free grooming solutions that protect pets’ health, comfort, and happiness—naturally.
+            PetCure champions safer, smarter, and more natural pet care innovations—because every paw deserves perfect polish.
           </p>
-          <blockquote className="text-pink-500 italic text-xl font-serif">
+          <blockquote className="text-pink-500 italic text-2xl font-serif">
             "Perfect. Polished. Paws."
           </blockquote>
-     
         </motion.div>
-       
-     
-     <motion.div
-          initial={{ opacity: 0, y: 60 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.2, duration: 1 }}
-          className="text-center mb-16"
-          id='compare'
+          <motion.hr
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                transition={{ delay: 0.6, duration: 1 }}
+                className="my-16 border-t-4 border-pink-200 w-3/4 mx-auto rounded-full"
+              />
+
+        {/* Compare */}
+        <motion.div
+          variants={fadeInVariant}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true }}
+          id="compare"
         >
-          {/* <h1  className="text-5xl font-bold text-pink-600 mb-4">How PetCure Stacks Up</h1>
-          <p className="text-gray-700 max-w-2xl mx-auto text-lg">
-            See how PetCure stands apart from traditional grooming tools and everyday stair solutions.
-          </p> */}
           <Compare />
         </motion.div>
 
+            <motion.hr
+                  initial={{ opacity: 0 }}
+                  animate={{ opacity: 1 }}
+                  transition={{ delay: 0.6, duration: 1 }}
+                  className="my-16 border-t-4 border-pink-200 w-3/4 mx-auto rounded-full"
+                />
 
+        {/* Invest */}
+        <motion.div
+          variants={fadeInVariant}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true }}
+          id="invest"
+        >
+          <Invest />
+        </motion.div>
 
-        <h2 id="invest" className="text-3xl font-bold text-pink-600 mb-6">Invest in PetCure</h2>
-        <Invest />
+        <button 
+           
+            className="fixed bottom-6 right-6 bg-pink-500 hover:bg-pink-600 text-white font-bold py-3 px-5 rounded-full shadow-lg transition duration-300"
+            aria-label="Back to Top"
+          >
+            ↑ Top
+          </button>
+
       </div>
     </section>
-    
   );
 }
 
