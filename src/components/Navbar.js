@@ -11,10 +11,14 @@ function Navbar() {
 
           {/* Left side - Logo */}
           <div className="flex items-center">
-            <Link to="/" className="text-pink-600 font-bold text-2xl tracking-tight">
-              PetCure
-            </Link>
-          </div>
+  <Link to="/" className="flex items-center">
+    <img 
+      src="/images/petcure-logo-pink.png" 
+      alt="PetCure Logo" 
+      className="h-20 md:h-20 object-contain"
+    />
+  </Link>
+</div>
 
           {/* Desktop Links */}
           <div className="hidden md:flex items-center space-x-6">
@@ -111,13 +115,13 @@ function Navbar() {
           <Link to="/products" onClick={() => setIsMobileMenuOpen(false)} className="text-gray-700 hover:text-pink-500 font-semibold transition">
             Products
           </Link>
-          <Link to="/products/pedisteps" onClick={() => setIsMobileMenuOpen(false)} className="text-gray-700 hover:text-pink-500 font-semibold transition pl-4">
+          <Link to="/pedisteps" onClick={() => setIsMobileMenuOpen(false)} className="text-gray-700 hover:text-pink-500 font-semibold transition pl-4">
             - PediSteps
           </Link>
-          <Link to="/products/pediwalk" onClick={() => setIsMobileMenuOpen(false)} className="text-gray-700 hover:text-pink-500 font-semibold transition pl-4">
+          <Link to="/pediwalk" onClick={() => setIsMobileMenuOpen(false)} className="text-gray-700 hover:text-pink-500 font-semibold transition pl-4">
             - PediWalk
           </Link>
-          <Link to="/products/coming-soon" onClick={() => setIsMobileMenuOpen(false)} className="text-gray-700 hover:text-pink-500 font-semibold transition pl-4">
+          <Link to="/coming-soon" onClick={() => setIsMobileMenuOpen(false)} className="text-gray-700 hover:text-pink-500 font-semibold transition pl-4">
             - Coming Soon ✨
           </Link>
           <Link to="/blog" onClick={() => setIsMobileMenuOpen(false)} className="text-gray-700 hover:text-pink-500 font-semibold transition">
