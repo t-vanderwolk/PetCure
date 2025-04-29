@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useRef, useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
 import Compare from './Compare';
@@ -10,11 +10,54 @@ const fadeInVariant = {
 };
 
 function About() {
+  const nailHealthRef = useRef(null);
+  const [showScrollTop, setShowScrollTop] = useState(false);
+
+  // Scroll-to-top logic triggered from "Why Nail Health Matters" onward
+  useEffect(() => {
+    const currentRef = nailHealthRef.current;
+    if (!currentRef) return;
+
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setShowScrollTop(true);
+        }
+      },
+      { threshold: 0.5 }
+    );
+
+    observer.observe(currentRef);
+
+    const handleScroll = () => {
+      const scrollY = window.scrollY;
+      const triggerY =
+        currentRef.getBoundingClientRect().top +
+        window.scrollY -
+        window.innerHeight / 2;
+
+      if (scrollY < triggerY) {
+        setShowScrollTop(false);
+      }
+    };
+
+    window.addEventListener('scroll', handleScroll);
+
+    return () => {
+      observer.unobserve(currentRef);
+      window.removeEventListener('scroll', handleScroll);
+    };
+  }, []);
+
+  const scrollToTop = () => {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  };
+
   return (
     <section className="bg-pink-50 pt-24 pb-20 min-h-screen overflow-x-hidden">
       <div className="max-w-7xl mx-auto px-6 space-y-20">
 
-        {/* Hero Section */}
+        {/* Hero */}
         <motion.div
           variants={fadeInVariant}
           initial="hidden"
@@ -28,7 +71,7 @@ function About() {
           </p>
         </motion.div>
 
-        {/* Problem/Solution */}
+        {/* Why PetCure */}
         <motion.div
           variants={fadeInVariant}
           initial="hidden"
@@ -138,8 +181,9 @@ function About() {
           </div>
         </motion.div>
 
-        {/* Nail Health */}
+        {/* Why Nail Health Matters */}
         <motion.div
+          ref={nailHealthRef}
           variants={fadeInVariant}
           initial="hidden"
           whileInView="visible"
@@ -157,7 +201,7 @@ function About() {
           />
         </motion.div>
 
-        {/* Mission Section */}
+        {/* Mission */}
         <motion.div
           variants={fadeInVariant}
           initial="hidden"
@@ -173,50 +217,54 @@ function About() {
             "Perfect. Polished. Paws."
           </blockquote>
         </motion.div>
-          <motion.hr
-                initial={{ opacity: 0 }}
-                animate={{ opacity: 1 }}
-                transition={{ delay: 0.6, duration: 1 }}
-                className="my-16 border-t-4 border-pink-200 w-3/4 mx-auto rounded-full"
-              />
+
+        {/* Divider */}
+        <motion.hr
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ delay: 0.6, duration: 1 }}
+          className="my-16 border-t-4 border-pink-200 w-3/4 mx-auto rounded-full"
+        />
 
         {/* Compare */}
         <motion.div
+          id="compare"
           variants={fadeInVariant}
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true }}
-          id="compare"
         >
           <Compare />
         </motion.div>
 
-            <motion.hr
-                  initial={{ opacity: 0 }}
-                  animate={{ opacity: 1 }}
-                  transition={{ delay: 0.6, duration: 1 }}
-                  className="my-16 border-t-4 border-pink-200 w-3/4 mx-auto rounded-full"
-                />
+        <motion.hr
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ delay: 0.6, duration: 1 }}
+          className="my-16 border-t-4 border-pink-200 w-3/4 mx-auto rounded-full"
+        />
 
         {/* Invest */}
         <motion.div
+          id="invest"
           variants={fadeInVariant}
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true }}
-          id="invest"
         >
           <Invest />
         </motion.div>
 
-        <button 
-           
+        {/* Scroll to Top Button */}
+        {showScrollTop && (
+          <button
+            onClick={scrollToTop}
             className="fixed bottom-6 right-6 bg-pink-500 hover:bg-pink-600 text-white font-bold py-3 px-5 rounded-full shadow-lg transition duration-300"
             aria-label="Back to Top"
           >
             ↑ Top
           </button>
-
+        )}
       </div>
     </section>
   );

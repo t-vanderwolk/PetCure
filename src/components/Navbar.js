@@ -9,8 +9,16 @@ function Navbar() {
 
   const navigate = useNavigate();
 
-  const handleNavigateAndClose = (path) => {
+  // Smooth Scroll Handler
+  const handleScrollToSection = (path, id) => {
     navigate(path);
+
+    setTimeout(() => {
+      const section = document.getElementById(id);
+      if (section) {
+        section.scrollIntoView({ behavior: 'smooth' });
+      }
+    }, 150); // slight delay to let route update
     setIsProductsOpen(false);
     setIsAboutOpen(false);
     setIsMobileMenuOpen(false);
@@ -37,8 +45,12 @@ function Navbar() {
             <div className="relative">
               <div className="flex items-center space-x-1">
                 <button
-                  onClick={() => handleNavigateAndClose('/about')}
-                  className="relative text-pink-500 hover:text-pink-600 font-semibold text-lg transition after:absolute after:left-0 after:-bottom-1 after:w-0 after:h-[2px] after:bg-pink-400 after:transition-all after:duration-300 hover:after:w-full"
+                  onClick={() => {
+                    navigate('/about');
+                    setIsProductsOpen(false);
+                    setIsAboutOpen(false);
+                  }}
+                  className="text-pink-500 hover:text-pink-600 font-semibold text-lg transition focus:outline-none"
                 >
                   About
                 </button>
@@ -47,26 +59,26 @@ function Navbar() {
                     setIsAboutOpen(!isAboutOpen);
                     setIsProductsOpen(false);
                   }}
-                  className="text-gray-500 hover:text-pink-400 text-lg focus:outline-none"
+                  className="text-pink-400 hover:text-pink-500 text-lg focus:outline-none"
                 >
                   ▾
                 </button>
               </div>
 
               {isAboutOpen && (
-                <div className="absolute mt-2 w-48 bg-white/80 backdrop-blur-lg rounded-2xl shadow-lg border border-pink-200 z-30">
-                  <a 
-                    href="/about#compare"
-                    className="block px-6 py-3 text-gray-700 hover:bg-pink-100 hover:text-pink-600 font-medium transition rounded-t-2xl"
+                <div className="absolute mt-2 w-48 bg-white/90 backdrop-blur-md rounded-2xl shadow-lg border border-pink-200 z-30">
+                  <button
+                    onClick={() => handleScrollToSection('/about', 'compare')}
+                    className="block w-full text-left px-6 py-3 text-gray-700 hover:bg-pink-100 hover:text-pink-600 font-medium transition rounded-t-2xl"
                   >
                     Compare
-                  </a>
-                  <a 
-                    href="/about#invest"
-                    className="block px-6 py-3 text-gray-700 hover:bg-pink-100 hover:text-pink-600 font-medium transition rounded-b-2xl"
+                  </button>
+                  <button
+                    onClick={() => handleScrollToSection('/about', 'invest')}
+                    className="block w-full text-left px-6 py-3 text-gray-700 hover:bg-pink-100 hover:text-pink-600 font-medium transition rounded-b-2xl"
                   >
                     Invest
-                  </a>
+                  </button>
                 </div>
               )}
             </div>
@@ -75,8 +87,12 @@ function Navbar() {
             <div className="relative">
               <div className="flex items-center space-x-1">
                 <button
-                  onClick={() => handleNavigateAndClose('/products')}
-                  className="relative text-pink-500 hover:text-pink-600 font-semibold text-lg transition after:absolute after:left-0 after:-bottom-1 after:w-0 after:h-[2px] after:bg-pink-400 after:transition-all after:duration-300 hover:after:w-full"
+                  onClick={() => {
+                    navigate('/products');
+                    setIsProductsOpen(false);
+                    setIsAboutOpen(false);
+                  }}
+                  className="text-pink-500 hover:text-pink-600 font-semibold text-lg transition focus:outline-none"
                 >
                   Products
                 </button>
@@ -85,44 +101,46 @@ function Navbar() {
                     setIsProductsOpen(!isProductsOpen);
                     setIsAboutOpen(false);
                   }}
-                  className="text-gray-500 hover:text-pink-400 text-lg focus:outline-none"
+                  className="text-pink-400 hover:text-pink-500 text-lg focus:outline-none"
                 >
                   ▾
                 </button>
               </div>
 
               {isProductsOpen && (
-                <div className="absolute mt-2 w-48 bg-white/80 backdrop-blur-lg rounded-2xl shadow-lg border border-pink-200 z-30">
+                <div className="absolute mt-2 w-48 bg-white/90 backdrop-blur-md rounded-2xl shadow-lg border border-pink-200 z-30">
                   <Link 
                     to="/pedisteps" 
+                    onClick={() => setIsProductsOpen(false)}
                     className="block px-6 py-3 text-gray-700 hover:bg-pink-100 hover:text-pink-600 font-medium transition rounded-t-2xl"
                   >
                     PediSteps
                   </Link>
                   <Link 
                     to="/pediwalk" 
+                    onClick={() => setIsProductsOpen(false)}
                     className="block px-6 py-3 text-gray-700 hover:bg-pink-100 hover:text-pink-600 font-medium transition"
                   >
                     PediWalk
                   </Link>
-                  <a 
-                    href="/products#coming-soon"
-                    className="block px-6 py-3 text-gray-700 hover:bg-pink-100 hover:text-pink-600 font-medium transition rounded-b-2xl"
+                  <button
+                    onClick={() => handleScrollToSection('/products', 'coming-soon')}
+                    className="block w-full text-left px-6 py-3 text-gray-700 hover:bg-pink-100 hover:text-pink-600 font-medium transition rounded-b-2xl"
                   >
                     Coming Soon ✨
-                  </a>
+                  </button>
                 </div>
               )}
             </div>
 
             {/* Static Links */}
-            <Link to="/blog" className="relative text-pink-500 hover:text-pink-600 font-semibold text-lg transition after:absolute after:left-0 after:-bottom-1 after:w-0 after:h-[2px] after:bg-pink-400 after:transition-all after:duration-300 hover:after:w-full">
+            <Link to="/blog" className="text-pink-500 hover:text-pink-600 font-semibold text-lg transition">
               Blog
             </Link>
-            <Link to="/contact" className="relative text-pink-500 hover:text-pink-600 font-semibold text-lg transition after:absolute after:left-0 after:-bottom-1 after:w-0 after:h-[2px] after:bg-pink-400 after:transition-all after:duration-300 hover:after:w-full">
+            <Link to="/contact" className="text-pink-500 hover:text-pink-600 font-semibold text-lg transition">
               Contact
             </Link>
-            <Link to="/facts" className="relative text-pink-500 hover:text-pink-600 font-semibold text-lg transition after:absolute after:left-0 after:-bottom-1 after:w-0 after:h-[2px] after:bg-pink-400 after:transition-all after:duration-300 hover:after:w-full">
+            <Link to="/facts" className="text-pink-500 hover:text-pink-600 font-semibold text-lg transition">
               FAQ
             </Link>
 
@@ -143,31 +161,31 @@ function Navbar() {
 
       {/* Mobile Menu */}
       {isMobileMenuOpen && (
-        <div className="bg-white/80 backdrop-blur-lg border-t border-pink-100 shadow-md rounded-b-2xl py-6 px-6 flex flex-col space-y-4 md:hidden z-50">
+        <div className="bg-white/90 backdrop-blur-md border-t border-pink-100 shadow-md rounded-b-2xl py-6 px-6 flex flex-col space-y-4 md:hidden z-50">
           <Link to="/" onClick={() => setIsMobileMenuOpen(false)} className="text-pink-500 hover:text-pink-600 font-semibold text-lg transition">
             Home
           </Link>
           <Link to="/about" onClick={() => setIsMobileMenuOpen(false)} className="text-pink-500 hover:text-pink-600 font-semibold text-lg transition">
             About
           </Link>
-          <a href="/about#compare" onClick={() => setIsMobileMenuOpen(false)} className="pl-6 text-pink-500 hover:text-pink-600 font-medium transition">
+          <button onClick={() => handleScrollToSection('/about', 'compare')} className="pl-6 text-gray-700 hover:text-pink-500 font-medium transition">
             - Compare
-          </a>
-          <a href="/about#invest" onClick={() => setIsMobileMenuOpen(false)} className="pl-6 text-pink-500 hover:text-pink-600 font-medium transition">
+          </button>
+          <button onClick={() => handleScrollToSection('/about', 'invest')} className="pl-6 text-gray-700 hover:text-pink-500 font-medium transition">
             - Invest
-          </a>
+          </button>
           <Link to="/products" onClick={() => setIsMobileMenuOpen(false)} className="text-pink-500 hover:text-pink-600 font-semibold text-lg transition">
             Products
           </Link>
-          <Link to="/pedisteps" onClick={() => setIsMobileMenuOpen(false)} className="pl-6 text-pink-500 hover:text-pink-600 font-medium transition">
+          <Link to="/pedisteps" onClick={() => setIsMobileMenuOpen(false)} className="pl-6 text-gray-700 hover:text-pink-500 font-medium transition">
             - PediSteps
           </Link>
-          <Link to="/pediwalk" onClick={() => setIsMobileMenuOpen(false)} className="pl-6 text-pink-500 hover:text-pink-600 font-medium transition">
+          <Link to="/pediwalk" onClick={() => setIsMobileMenuOpen(false)} className="pl-6 text-gray-700 hover:text-pink-500 font-medium transition">
             - PediWalk
           </Link>
-          <a href="/products#coming-soon" onClick={() => setIsMobileMenuOpen(false)} className="pl-6 text-pink-500 hover:text-pink-600 font-medium transition">
+          <button onClick={() => handleScrollToSection('/products', 'coming-soon')} className="pl-6 text-gray-700 hover:text-pink-500 font-medium transition">
             - Coming Soon
-          </a>
+          </button>
           <Link to="/blog" onClick={() => setIsMobileMenuOpen(false)} className="text-pink-500 hover:text-pink-600 font-semibold text-lg transition">
             Blog
           </Link>
