@@ -162,9 +162,7 @@ function Navbar() {
       {/* Mobile Menu */}
       {isMobileMenuOpen && (
         <div className="bg-white/90 backdrop-blur-md border-t border-pink-100 shadow-md rounded-b-2xl py-6 px-6 flex flex-col space-y-4 md:hidden z-50">
-          <Link to="/" onClick={() => setIsMobileMenuOpen(false)} className="text-pink-500 hover:text-pink-600 font-semibold text-lg transition">
-            Home
-          </Link>
+          
           <Link to="/about" onClick={() => setIsMobileMenuOpen(false)} className="text-pink-500 hover:text-pink-600 font-semibold text-lg transition">
             About
           </Link>
