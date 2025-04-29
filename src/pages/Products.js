@@ -2,6 +2,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import ComingSoon from './ComingSoon';
+import { motion } from 'framer-motion';
 
 function Products() {
   return (
@@ -59,7 +60,8 @@ function Products() {
         </div>
 
         {/* Coming Soon Section */}
-        <ComingSoon />
+    <div   className="text-5xl font-bold text-pink-600 mb-6" id='coming-soon' />
+    <ComingSoon />
 
       </div>
     </section>

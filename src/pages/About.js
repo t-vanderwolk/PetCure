@@ -2,6 +2,8 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
+import Compare from './Compare';
+import Invest from './Invest';
 
 function About() {
   return (
@@ -163,10 +165,31 @@ function About() {
           <blockquote className="text-pink-500 italic text-xl font-serif">
             "Perfect. Polished. Paws."
           </blockquote>
+     
+        </motion.div>
+       
+     
+     <motion.div
+          initial={{ opacity: 0, y: 60 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 0.2, duration: 1 }}
+          className="text-center mb-16"
+          id='compare'
+        >
+          {/* <h1  className="text-5xl font-bold text-pink-600 mb-4">How PetCure Stacks Up</h1>
+          <p className="text-gray-700 max-w-2xl mx-auto text-lg">
+            See how PetCure stands apart from traditional grooming tools and everyday stair solutions.
+          </p> */}
+          <Compare />
         </motion.div>
 
+
+
+        <h2 id="invest" className="text-3xl font-bold text-pink-600 mb-6">Invest in PetCure</h2>
+        <Invest />
       </div>
     </section>
+    
   );
 }
 

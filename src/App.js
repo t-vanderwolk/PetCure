@@ -34,7 +34,7 @@ function AppContent() {
         <Route path="/contact" element={<Contact />} />
         <Route path="/invest" element={<Invest />} />
 
-        <Route path="/coming-soon" element={<ComingSoon />} />
+        <Route path="/products#coming-soon" element={<ComingSoon />} />
         <Route path="/pedisteps" element={<PediSteps />} />
         <Route path="/pediwalk" element={<PediWalk />} />
         <Route path="/facts" element={<Facts />} />
