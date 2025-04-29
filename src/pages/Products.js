@@ -83,9 +83,13 @@ function Products() {
           transition={{ duration: 1 }}
           className="text-center"
         >
-          <h2 className="text-5xl font-bold text-pink-600 mb-12">
-            What's Coming Next
-          </h2>
+                <motion.hr
+                    initial={{ opacity: 0 }}
+                    animate={{ opacity: 1 }}
+                    transition={{ delay: 0.6, duration: 1 }}
+                    className="my-16 border-t-4 border-pink-200 w-3/4 mx-auto rounded-full"
+                  />
+          
 
           <ComingSoon />
         </motion.div>
