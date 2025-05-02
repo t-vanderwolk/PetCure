@@ -6,19 +6,17 @@ function Navbar() {
   const [isProductsOpen, setIsProductsOpen] = useState(false);
   const [isAboutOpen, setIsAboutOpen] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
-
   const navigate = useNavigate();
 
-  // Smooth Scroll Handler
+  // Smooth scroll
   const handleScrollToSection = (path, id) => {
     navigate(path);
-
     setTimeout(() => {
       const section = document.getElementById(id);
       if (section) {
         section.scrollIntoView({ behavior: 'smooth' });
       }
-    }, 150); // slight delay to let route update
+    }, 150);
     setIsProductsOpen(false);
     setIsAboutOpen(false);
     setIsMobileMenuOpen(false);
@@ -26,17 +24,19 @@ function Navbar() {
 
   return (
     <nav className="bg-white/70 backdrop-blur-md shadow-md fixed top-0 left-0 w-full z-50 border-b border-pink-100">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="max-w-7xl mx-auto pl-2 pr-4 sm:pl-4 sm:pr-6 lg:pl-6 lg:pr-8">
         <div className="flex justify-between items-center h-20">
 
-          {/* Logo */}
-          <Link to="/" className="flex items-center">
-            <img 
-              src="/images/petcure-logo-pink.png" 
-              alt="PetCure Logo" 
-              className="h-16 object-contain"
-            />
-          </Link>
+          {/* Logo - far left */}
+          <div className="flex items-center justify-start">
+            <Link to="/" className="block">
+              <img
+                src="/images/petcure-logo-pink.png"
+                alt="PetCure Logo"
+                className="h-20 object-contain"
+              />
+            </Link>
+          </div>
 
           {/* Desktop Menu */}
           <div className="hidden md:flex items-center space-x-8">
@@ -50,7 +50,7 @@ function Navbar() {
                     setIsProductsOpen(false);
                     setIsAboutOpen(false);
                   }}
-                  className="text-pink-500 hover:text-pink-600 font-semibold text-lg transition focus:outline-none"
+                  className="text-pink-500 hover:text-pink-600 font-semibold text-lg transition"
                 >
                   About
                 </button>
@@ -92,7 +92,7 @@ function Navbar() {
                     setIsProductsOpen(false);
                     setIsAboutOpen(false);
                   }}
-                  className="text-pink-500 hover:text-pink-600 font-semibold text-lg transition focus:outline-none"
+                  className="text-pink-500 hover:text-pink-600 font-semibold text-lg transition"
                 >
                   Products
                 </button>
@@ -109,15 +109,15 @@ function Navbar() {
 
               {isProductsOpen && (
                 <div className="absolute mt-2 w-48 bg-white/90 backdrop-blur-md rounded-2xl shadow-lg border border-pink-200 z-30">
-                  <Link 
-                    to="/pedisteps" 
+                  <Link
+                    to="/pedisteps"
                     onClick={() => setIsProductsOpen(false)}
                     className="block px-6 py-3 text-gray-700 hover:bg-pink-100 hover:text-pink-600 font-medium transition rounded-t-2xl"
                   >
                     PediSteps
                   </Link>
-                  <Link 
-                    to="/pediwalk" 
+                  <Link
+                    to="/pediwalk"
                     onClick={() => setIsProductsOpen(false)}
                     className="block px-6 py-3 text-gray-700 hover:bg-pink-100 hover:text-pink-600 font-medium transition"
                   >
@@ -143,7 +143,6 @@ function Navbar() {
             <Link to="/facts" className="text-pink-500 hover:text-pink-600 font-semibold text-lg transition">
               FAQ
             </Link>
-
           </div>
 
           {/* Hamburger Menu */}
@@ -155,14 +154,12 @@ function Navbar() {
               ☰
             </button>
           </div>
-
         </div>
       </div>
 
       {/* Mobile Menu */}
       {isMobileMenuOpen && (
         <div className="bg-white/90 backdrop-blur-md border-t border-pink-100 shadow-md rounded-b-2xl py-6 px-6 flex flex-col space-y-4 md:hidden z-50">
-          
           <Link to="/about" onClick={() => setIsMobileMenuOpen(false)} className="text-pink-500 hover:text-pink-600 font-semibold text-lg transition">
             About
           </Link>

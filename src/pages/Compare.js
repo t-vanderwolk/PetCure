@@ -1,6 +1,5 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-// import '../index.css'; // Make sure index.css includes your Compare table styles
 
 function Compare() {
   const nailCareData = [
@@ -19,29 +18,26 @@ function Compare() {
     { feature: 'Files Pet Nails', petcure: true, stairTreads: false, stairRunner: false, antiSlipTape: false },
     { feature: 'Adds Home Aesthetic', petcure: true, stairTreads: true, stairRunner: true, antiSlipTape: false },
     { feature: 'Non-Slip Safety', petcure: true, stairTreads: true, stairRunner: true, antiSlipTape: true },
-    { feature: 'Custom Sizing', petcure: true, stairTreads: sometimes(), stairRunner: true, antiSlipTape: sometimes() },
+    { feature: 'Custom Sizing', petcure: true, stairTreads: 'sometimes', stairRunner: true, antiSlipTape: 'sometimes' },
     { feature: 'Low Profile Design', petcure: true, stairTreads: true, stairRunner: true, antiSlipTape: true },
   ];
 
-  function renderYesNo(value) {
+  const renderYesNo = (value) => {
     if (value === true) return <span className="text-green-500 font-bold">✔️</span>;
     if (value === false) return <span className="text-red-400 font-bold">✖️</span>;
     return <span className="text-yellow-400 font-bold">➖</span>;
-  }
-
-  function sometimes() {
-    return <span className="text-yellow-400 font-bold">➖</span>;
-  }
+  };
 
   return (
     <section className="bg-pink-50 pt-24 pb-20 min-h-screen px-6">
-      <div className="max-w-7xl mx-auto">
-        {/* Page Heading */}
+      <div className="max-w-7xl mx-auto space-y-20">
+
+        {/* Heading */}
         <motion.div
           initial={{ opacity: 0, y: 60 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.2, duration: 1 }}
-          className="text-center mb-16"
+          className="text-center"
         >
           <h1 className="text-5xl font-bold text-pink-600 mb-4">How PetCure Stacks Up</h1>
           <p className="text-gray-700 max-w-2xl mx-auto text-lg">
@@ -49,52 +45,46 @@ function Compare() {
           </p>
         </motion.div>
 
-        <motion.div
-  initial={{ opacity: 0 }}
-  animate={{ opacity: 1 }}
-  transition={{ delay: 0.3, duration: 1 }}
-  className="text-center mb-8"
->
-  <h2 className="text-3xl font-bold text-pink-600 mb-4">PetCure vs Traditional Nail Care Solutions</h2>
-  <p className="text-gray-700 max-w-3xl mx-auto text-lg">
-    We compared PetCure to common pet nail care options like clipping, grinding, scratch boards, grooming hammocks, and hand-held nail filers.
-    See why PetCure offers the only passive, stress-free, daily solution for natural nail health.
-  </p>
-</motion.div>
-
-        {/* Nail Care Comparison Table */}
+        {/* Nail Care Comparison */}
         <motion.div
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
-          transition={{ delay: 0.4, duration: 1 }}
-          className="overflow-x-auto mb-20"
+          transition={{ delay: 0.3, duration: 1 }}
+          className="space-y-6"
         >
-          <table className="comparison-table">
-            <thead>
-              <tr>
-                <th>Feature</th>
-                <th className="highlight">PetCure</th>
-                <th>Clipping</th>
-                <th>Grinding</th>
-                <th>Scratch Board</th>
-                <th>Grooming Hammock</th>
-                <th>Hand-Held Nail Filer</th>
-              </tr>
-            </thead>
-            <tbody>
-              {nailCareData.map((row, idx) => (
-                <tr key={idx}>
-                  <td>{row.feature}</td>
-                  <td className="highlight">{renderYesNo(row.petcure)}</td>
-                  <td>{renderYesNo(row.clipping)}</td>
-                  <td>{renderYesNo(row.grinding)}</td>
-                  <td>{renderYesNo(row.scratchBoard)}</td>
-                  <td>{renderYesNo(row.hammock)}</td>
-                  <td>{renderYesNo(row.handFiler)}</td>
+          <h2 className="text-3xl font-bold text-pink-600 text-center">PetCure vs Traditional Nail Care Solutions</h2>
+          <p className="text-gray-700 max-w-3xl mx-auto text-center text-lg">
+            We compared PetCure to clipping, grinding, scratch boards, grooming hammocks, and handheld nail filers.
+          </p>
+
+          <div className="overflow-x-auto">
+            <table className="comparison-table min-w-[650px]">
+              <thead>
+                <tr>
+                  <th>Feature</th>
+                  <th className="highlight">PetCure</th>
+                  <th>Clipping</th>
+                  <th>Grinding</th>
+                  <th>Scratch Board</th>
+                  <th>Grooming Hammock</th>
+                  <th>Hand-Held Nail Filer</th>
                 </tr>
-              ))}
-            </tbody>
-          </table>
+              </thead>
+              <tbody>
+                {nailCareData.map((row, idx) => (
+                  <tr key={idx}>
+                    <td>{row.feature}</td>
+                    <td className="highlight">{renderYesNo(row.petcure)}</td>
+                    <td>{renderYesNo(row.clipping)}</td>
+                    <td>{renderYesNo(row.grinding)}</td>
+                    <td>{renderYesNo(row.scratchBoard)}</td>
+                    <td>{renderYesNo(row.hammock)}</td>
+                    <td>{renderYesNo(row.handFiler)}</td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
         </motion.div>
 
         {/* Divider */}
@@ -105,49 +95,42 @@ function Compare() {
           className="my-16 border-t-4 border-pink-200 w-3/4 mx-auto rounded-full"
         />
 
-<motion.div
-  initial={{ opacity: 0 }}
-  animate={{ opacity: 1 }}
-  transition={{ delay: 0.7, duration: 1 }}
-  className="text-center mb-8"
->
-  <h2 className="text-3xl font-bold text-pink-600 mb-4">PetCure vs Home Safety & Decor Products</h2>
-  <p className="text-gray-700 max-w-3xl mx-auto text-lg">
-    Beyond grooming, PetCure also outperforms traditional home stair and floor products—like stair treads, runners, and anti-slip tape—
-    by protecting your home and filing your pet’s nails at the same time.
-  </p>
-</motion.div>
-        {/* Home Decor Comparison Table */}
+        {/* Home Decor Comparison */}
         <motion.div
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
-          transition={{ delay: 0.8, duration: 1 }}
-          className="overflow-x-auto"
+          transition={{ delay: 0.7, duration: 1 }}
+          className="space-y-6"
         >
-          <table className="comparison-table">
-            <thead>
-              <tr>
-                <th>Feature</th>
-                <th className="highlight">PetCure</th>
-                <th>Carpet Stair Treads</th>
-                <th>Carpet Stair Runner</th>
-                <th>Anti-Slip Tape</th>
-              </tr>
-            </thead>
-            <tbody>
-              {homeDecorData.map((row, idx) => (
-                <tr key={idx}>
-                  <td>{row.feature}</td>
-                  <td className="highlight">{renderYesNo(row.petcure)}</td>
-                  <td>{renderYesNo(row.stairTreads)}</td>
-                  <td>{renderYesNo(row.stairRunner)}</td>
-                  <td>{renderYesNo(row.antiSlipTape)}</td>
-                </tr>
-              ))}
-            </tbody>
-          </table>
-         
+          <h2 className="text-3xl font-bold text-pink-600 text-center">PetCure vs Home Safety & Decor Products</h2>
+          <p className="text-gray-700 max-w-3xl mx-auto text-center text-lg">
+            PetCure combines nail care and stair protection—unlike carpet treads, runners, or anti-slip tape.
+          </p>
 
+          <div className="overflow-x-auto">
+            <table className="comparison-table min-w-[650px]">
+              <thead>
+                <tr>
+                  <th>Feature</th>
+                  <th className="highlight">PetCure</th>
+                  <th>Carpet Stair Treads</th>
+                  <th>Carpet Stair Runner</th>
+                  <th>Anti-Slip Tape</th>
+                </tr>
+              </thead>
+              <tbody>
+                {homeDecorData.map((row, idx) => (
+                  <tr key={idx}>
+                    <td>{row.feature}</td>
+                    <td className="highlight">{renderYesNo(row.petcure)}</td>
+                    <td>{renderYesNo(row.stairTreads)}</td>
+                    <td>{renderYesNo(row.stairRunner)}</td>
+                    <td>{renderYesNo(row.antiSlipTape)}</td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
         </motion.div>
       </div>
     </section>
@@ -155,3 +138,4 @@ function Compare() {
 }
 
 export default Compare;
+
