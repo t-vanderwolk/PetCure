@@ -57,7 +57,7 @@ function Compare() {
             We compared PetCure to clipping, grinding, scratch boards, grooming hammocks, and handheld nail filers.
           </p>
 
-          <div className="overflow-x-auto">
+          <div className="overflow-x-auto bg-pink-50/60 backdrop-blur-md rounded-2xl shadow-md border border-pink-200 p-10 text-center">
             <table className="comparison-table min-w-[650px]">
               <thead>
                 <tr>
@@ -107,7 +107,7 @@ function Compare() {
             PetCure combines nail care and stair protection—unlike carpet treads, runners, or anti-slip tape.
           </p>
 
-          <div className="overflow-x-auto">
+          <div className="overflow-x-auto bg-pink-50/60 backdrop-blur-md rounded-2xl shadow-md border border-pink-200 p-10 text-center">
             <table className="comparison-table min-w-[650px]">
               <thead>
                 <tr>
